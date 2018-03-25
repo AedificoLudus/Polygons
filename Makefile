@@ -1,5 +1,5 @@
-prog: main.o MyPolygons.o Polygons.o Point.o
-	g++ -o prog main.o MyPolygons.o Polygon.o Point.o
+prog: main.o MyPolygons.o Point.o
+	g++ -o prog main.o MyPolygons.o Point.o
 
 main.o: main.cpp MyPolygons.h
 	g++ -c -o main.o main.cpp

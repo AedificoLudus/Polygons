@@ -1,5 +1,6 @@
 #include "Point.h"
 #include<sstream>
+#include<cmath>
 
 void Point::set_values (double X, double Y) {
   xCoord = X;
@@ -22,7 +23,7 @@ double Point::distance () {
   return abs(sqrt(pow(xCoord, 2) + pow(yCoord, 2)));
 }
 
-std::string to_string () {
+std::string Point::to_string () {
   std::stringstream ss;
   ss << "(" << xCoord << ", " << yCoord << ")";
   return ss.str();
