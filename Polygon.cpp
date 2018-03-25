@@ -8,11 +8,11 @@
 int counter = 0;
 
 //dynaically allocate memory for Nodes
-node* Polygon::create_node(Point* data)
+pnode* Polygon::create_node(Point* data)
 {
     counter++;
-    node *temp;
-    temp = new(struct node);
+    pnode *temp;
+    temp = new(struct pnode);
     temp->data = data;
     temp->next = NULL;
     temp->prev = NULL;
@@ -31,7 +31,7 @@ void Polygon::reset()
 //insert a Node at the beginning
 void Polygon::prepend(Point* data)
 {
-    node *temp;
+    pnode *temp;
     temp = create_node(data);
     reset();
     if (current->next == current)
@@ -51,9 +51,9 @@ void Polygon::prepend(Point* data)
 }
 
 //insert a node at the end
-void Polygon::insert_last(Point* data)
+void Polygon::append(Point* data)
 {
-    node *temp;
+    pnode *temp;
     reset();
     temp = create_node(data);
     if (current->next == current)
@@ -75,7 +75,7 @@ void Polygon::insert_last(Point* data)
 //insert a node at a given position
 void Polygon::insert_pos(Point* data, int pos)
 {
-    node *temp, *s, *ptr;
+    pnode *temp, *s, *ptr;
     temp = create_node(data);
     reset();
     if (counter < pos)
@@ -102,7 +102,7 @@ void Polygon::insert_pos(Point* data, int pos)
 //delete node at a given position
 void Polygon::delete_pos(int pos)
 {
-  node *s;
+  pnode *s;
   reset();
   if (current->next == current)
   {
@@ -122,7 +122,7 @@ void Polygon::delete_pos(int pos)
 
 void Polygon::add_first()
 {
-  insert_last(NULL);
+  append(NULL);
 }
 
 Point* Polygon::head()

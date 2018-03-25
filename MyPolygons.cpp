@@ -1,17 +1,18 @@
 #include "MyPolygons.h"
 
 #include <sstream>
+#include <iostream>
 
 #include<cmath>
 
 int counter = 0;
 
 //dynaically allocate memory for Nodes
-node* MyPolygons::create_node(Polygon* data)
+mnode* MyPolygons::create_node(Polygon* data)
 {
   counter++;
-  node *temp;
-  temp = new(struct node);
+  mnode *temp;
+  temp = new(struct mnode);
   temp->data = data;
   temp->next = NULL;
   temp->prev = NULL;
@@ -30,7 +31,7 @@ void MyPolygons::reset()
 //insert a Node at the beginning
 void MyPolygons::prepend(Polygon* data)
 {
-  node *temp;
+  mnode *temp;
   temp = create_node(data);
   reset();
   if (current->next == current)
@@ -50,9 +51,9 @@ void MyPolygons::prepend(Polygon* data)
 }
 
 //insert a node at the end
-void MyPolygons::insert_last(Polygon* data)
+void MyPolygons::append(Polygon* data)
 {
-  node *temp;
+  mnode *temp;
   reset();
   temp = create_node(data);
   if (current->next == current)
@@ -74,7 +75,7 @@ void MyPolygons::insert_last(Polygon* data)
 //insert a node at a given position
 void MyPolygons::insert_pos(Polygon* data, int pos)
 {
-  node *temp, *s, *ptr;
+  mnode *temp, *s, *ptr;
   temp = create_node(data);
   reset();
   if (counter < pos)
@@ -101,7 +102,7 @@ void MyPolygons::insert_pos(Polygon* data, int pos)
 //delete node at a given position
 void MyPolygons::delete_pos(int pos)
 {
-  node *s;
+  mnode *s;
   reset();
   if (current->next == current)
   {
@@ -121,7 +122,7 @@ void MyPolygons::delete_pos(int pos)
 
 void MyPolygons::add_first()
 {
-  insert_last(NULL);
+  append(NULL);
 }
 
 Polygon* head()

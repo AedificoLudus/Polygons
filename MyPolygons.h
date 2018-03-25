@@ -19,9 +19,9 @@ public:
     mnode* create_node(Polygon* data);
     void reset();
     void prepend(Polygon*);
-    void insert_last(Polygon*);
+    void append(Polygon*);
     void insert_pos(Polygon*, int pos);
-    void delete_pos(Polygon*, int pos);
+    void delete_pos(int pos);
     void add_first();
     void swap(mnode);
     Polygon* head();
