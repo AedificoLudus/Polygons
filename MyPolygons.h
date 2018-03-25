@@ -2,21 +2,28 @@
 
 #include "Polygon.h"
 
+struct mnode
+{
+  Polygon*data;
+  mnode* next;
+  mnode* prev;
+};
+
 class MyPolygons
 {
 public:
-    node *current;
+    mnode *current;
 
     int counter = 0;
 
-    node* create_node(Polygon* data);
+    mnode* create_node(Polygon* data);
     void reset();
     void prepend(Polygon*);
     void insert_last(Polygon*);
     void insert_pos(Polygon*, int pos);
     void delete_pos(Polygon*, int pos);
     void add_first();
-    void swap(node);
+    void swap(mnode);
     Polygon* head();
     std::string to_string();
 
