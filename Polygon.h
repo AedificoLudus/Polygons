@@ -28,4 +28,6 @@ public:
     double calc_area();
     std::string to_string();
     double distance();
+    void add_node(double, double);
+    void populate(double[]);
 };

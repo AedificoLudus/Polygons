@@ -173,3 +173,19 @@ double Polygon::distance()
   }
   return min;
 }
+
+void Polygon::add_node(double X, double Y)
+{
+  Point newPoint;
+  newPoint.set_values(X, Y);
+  append(newPoint*);
+}
+
+void Polygon::populate(double[])
+{
+  add_first();
+  for(int i = 2; i < length*2; i += 2)
+  {
+      add_node(i, i+1);
+  }
+}
