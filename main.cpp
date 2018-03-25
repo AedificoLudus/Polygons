@@ -16,22 +16,23 @@ int main()
   //read file
   //create Polygons in MyPolygons
   std::string currentLine;
-  std::getline(file, currentLine);
+  std::getline(inputFile, currentLine);
   do {
     int length = currentLine.at(2);
-    double points [(length*2)+2];
+    std::list<double> points;
+     //[(length*2)+2];
     for (int i = 0; i < 1; i++)
     {
       using namespace std;
       istringstream iss(currentLine);
       copy(istream_iterator<string>(iss),
-          istream)iterator<string>(),
+          istream_iterator<string>(),
           back_inserter(points));
     }
     Polygon temp;
     temp.populate(points);
     firstSet.append(temp*);
-    std::getline(file, currentLine);
+    std::getline(inputFile, currentLine);
   } while(!inputFile.eof());
   //close file
   inputFile.close();

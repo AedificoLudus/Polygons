@@ -181,7 +181,7 @@ void Polygon::add_node(double X, double Y)
   append(newPoint*);
 }
 
-void Polygon::populate(double[])
+void Polygon::populate(list<double>)
 {
   add_first();
   for(int i = 2; i < length*2; i += 2)

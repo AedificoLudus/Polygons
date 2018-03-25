@@ -29,5 +29,5 @@ public:
     std::string to_string();
     double distance();
     void add_node(double, double);
-    void populate(double[]);
+    void populate(std::list<double>);
 };
