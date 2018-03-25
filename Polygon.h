@@ -1,10 +1,7 @@
-#ifndef Point_h
-#define Point_h
-#include "Point.h"
-#endif
-
 #ifndef Polygon_h
 #define Polygon_h
+
+#include "Point.h"
 
 class Polygon
 {
@@ -17,7 +14,6 @@ class Polygon
       struct pnode *next;
       struct pnode *prev;
     } *current;
-    typedef pnode pnode;
 
     pnode *create_pnode(Point* data);
     void reset();

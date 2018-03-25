@@ -1,6 +1,8 @@
 #ifndef Point_h
 #define Point_h
 
+#include<string>
+
 class Point {
   private:
     double xCoord, yCoord;
