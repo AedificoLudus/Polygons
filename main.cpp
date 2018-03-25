@@ -7,5 +7,5 @@ std::ifstream infile();
 
 int main()
 {
-  std::ifstream infile("");
+  return 0;
 }

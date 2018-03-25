@@ -2,16 +2,16 @@
 
 #include "Point.h"
 
-struct pnode
+struct node
 {
 
 class Polygon
 {
 public:
-    
-    pnode *current;
-    
-    pnode *create_pnode(Point* data);
+
+    node *current;
+
+    node *create_node(Point* data);
     void reset();
     void prepend(Point* data);
     void insert_last(Point* data);

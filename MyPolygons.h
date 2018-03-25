@@ -6,18 +6,18 @@
 class MyPolygons
 {
 public:
-    mnode *current;
-  
+    node *current;
+
     int counter = 0;
 
-    mnode* create_mnode(Polygon* data);
+    node* create_node(Polygon* data);
     void reset();
     void prepend(Polygon*);
     void insert_last(Polygon*);
     void insert_pos(Polygon*, int pos);
     void delete_pos(Polygon*, int pos);
     void add_first();
-    void swap(mnode);
+    void swap(node);
     Polygon* head();
     std::string to_string();
 };
