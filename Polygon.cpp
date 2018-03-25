@@ -1,140 +1,105 @@
-#include "Point.h"
-
 #include "Polygon.h"
 
 #include <sstream>
 
 #include<cmath>
 
-//Declare Node
-struct pnode
-{
-  Point *data;
-  struct pnode *next;
-  struct pnode *prev;
-};
-typedef pnode pnode;
-
-*current;
 int counter = 0;
 
-//Declare Linked list
-class
-{
-  private:
-
-  public:
-    pnode *create_pnode(Point* data);
-    void reset();
-    void prepend(Point* data);
-    void insert_last(Point* data);
-    void insert_pos(Point* data, int pos);
-    void delete_pos(Point* data, int pos);
-    void add_first();
-    Point* head();
-    double calc_area():
-    std::string to_string();
-    double distance();
-    Polygon()
-    {
-      current = NULL;
-    }
-};
-
 //dynaically allocate memory for Nodes
-pnode* create_pnode(Point* data)
+pnode* Polygon::create_pnode(Point* data)
 {
-  counter++;
-  pnode *temp;
-  temp = new(struct pnode);
-  temp->data = data;
-  temp->next = NULL;
-  temp->prev = NULL;
-  return temp;
+    counter++;
+    pnode *temp;
+    temp = new(struct pnode);
+    temp->data = data;
+    temp->next = NULL;
+    temp->prev = NULL;
+    return temp;
 }
 
 //search for a null node (the sentinel node)
-void reset()
+void Polygon::reset()
 {
-  while (current->data != NULL)
-  {
-    current = current->next;
-  }
+    while (current->data != NULL)
+    {
+        current = current->next;
+    }
 }
 
 //insert a Node at the beginning
 void Polygon::prepend(Point* data)
 {
-  struct pnode *temp;
-  temp = create_pnode(data);
-  reset();
-  if (current->next == current)
-  {
-    temp->next = current;
-    temp->prev = current;
-    current->next = temp;
-    current->prev = temp;
-  }
-  else
-  {
-    temp->next = current->next;
-    temp->prev = current;
-    current->next->prev = temp;
-    current->next = temp;
-  }
+    pnode *temp;
+    temp = create_pnode(data);
+    reset();
+    if (current->next == current)
+    {
+        temp->next = current;
+        temp->prev = current;
+        current->next = temp;
+        current->prev = temp;
+    }
+    else
+    {
+        temp->next = current->next;
+        temp->prev = current;
+        current->next->prev = temp;
+        current->next = temp;
+    }
 }
 
 //insert a node at the end
 void Polygon::insert_last(Point* data)
 {
-  struct pnode *temp;
-  reset();
-  temp = create_pnode(data);
-  if (current->next == current)
-  {
-    current->next = temp;
-    current->prev = temp;
-    temp->next = current;
-    temp->prev = current;
-  }
-  else
-  {
-    current->prev->next = temp;
-    temp->prev = current->prev;
-    current->prev = temp;
-    temp->next = current;
-  }
+    pnode *temp;
+    reset();
+    temp = create_pnode(data);
+    if (current->next == current)
+    {
+        current->next = temp;
+        current->prev = temp;
+        temp->next = current;
+        temp->prev = current;
+    }
+    else
+    {
+        current->prev->next = temp;
+        temp->prev = current->prev;
+        current->prev = temp;
+        temp->next = current;
+    }
 }
 
 //insert a node at a given position
 void Polygon::insert_pos(Point* data, int pos)
 {
-  struct pnode *temp, *s, *ptr;
-  temp = create_pnode(data);
-  reset();
-  if (counter < pos)
-  {
-    std::cout << "Position out of range" << std::endl;
-    counter--;
-    return;
-    }
-  s = current;
-  for (int i = 1; i <= counter; i++)
-  {
-    ptr = s;
-    s = s->next;
-    if (i == pos - 1)
+    pnode *temp, *s, *ptr;
+    temp = create_pnode(data);
+    reset();
+    if (counter < pos)
     {
-      ptr->next = temp;
-      temp->prev = ptr;
-      s->prev = temp;
-      break;
+        std::cout << "Position out of range" << std::endl;
+        counter--;
+        return;
     }
-  }
+    s = current;
+    for (int i = 1; i <= counter; i++)
+    {
+        ptr = s;
+        s = s->next;
+        if (i == pos - 1)
+        {
+            ptr->next = temp;
+            temp->prev = ptr;
+            s->prev = temp;
+            break;
+        }
+    }
 }
 
 //delete node at a given position
-void delete_pos(int pos)
+void Polygon::delete_pos(int pos)
 {
   pnode *s;
   reset();
@@ -154,19 +119,19 @@ void delete_pos(int pos)
   free(s);
 }
 
-void add_first()
+void Polygon::add_first()
 {
   insert_last(NULL);
 }
 
-Point* head()
+Point* Polygon::head()
 {
   reset();
   current = current->next;
   return current->data;
 }
 
-double calc_area()
+double Polygon::calc_area()
 {
   double area = 0.00;
   reset();
@@ -182,7 +147,7 @@ double calc_area()
   return area;
 }
 
-std::string to_string()
+std::string Polygon::to_string()
 {
   std:;string ss = "[";
   for (int i=0;i<counter;i++)
@@ -194,7 +159,7 @@ std::string to_string()
   return ss.str();
 }
 
-double distance()
+double Polygon::distance()
 {
   reset();
   double min = current->data.distance();
