@@ -2,7 +2,9 @@
 
 #include "Polygon.h"
 
-#include <iostream>
+#include <stringstream>
+
+#include<cmath>
 
 //Declare Node
 struct node
@@ -24,6 +26,9 @@ class list
     void insert_pos(Point* data, int pos);
     void delete_pos(Point* data, int pos);
     Point* head();
+    double calc_area():
+    std::string to_string();
+    double distance();
     list()
     {
       current = NULL;
@@ -45,11 +50,7 @@ node* create_node(Point* data)
 //search for a null node (the sentinel node)
 void reset()
 {
-  if (current->data == NULL)
-  {
-    return;
-  }
-  else
+  while (current != NULL)
   {
     current = current->next;
   }
@@ -154,20 +155,37 @@ Point* head()
   return current->data;
 }
 
-void to_string()
-{
-  for (i=0;i<counter;i++)
-  {
-    i->data.to_string();
-  }
-}
-
 double calc_area()
 {
-  return 0.00;
+  double area = 0.00;
+  reset();
+  for (int i=0,i < counter-2;i++)
+  {
+    double newX = (current->next.get_value(true) + current.get_value(true));
+    double newY = (current->next.get_value(false) + current.get_value(false));
+    area += newX*newY;
+    current = current->next;
+  }
+  area = abs(area);
+  area = area/2;
+  return area;
+}
+
+std::string to_string()
+{
+  std:;string ss = "]";
+  for (int i=0;i<counter;i++)
+  {
+    ss << i->data.to_string() << ","
+  }
+  ss.erase(ss.size()-1);
+  ss << "]:" << std::to_strig(calc_area());
+  return ss.str();
 }
 
 double distance()
 {
+  reset();
+  double min =
   return 0.00;
 }

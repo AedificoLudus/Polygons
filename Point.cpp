@@ -1,9 +1,11 @@
 #include "Point.h"
+#include<stringstream>
 
 class Point {
     double xCoord, yCoord;
   public:
     void set_values (double, double);
+    double get_value(bool);
     int distance ();
     std::string to_string ();
 }
@@ -11,6 +13,18 @@ class Point {
 void Point::set_values (double X, double Y) {
   xCoord = X;
   yCoord = Y;
+}
+
+double get_value(bool coord)
+{
+  if (bool coord = true)
+  {
+    return xCoord;
+  }
+  else
+  {
+    return yCoord;
+  }
 }
 
 int Point::distance () {
