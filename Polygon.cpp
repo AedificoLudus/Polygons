@@ -178,7 +178,7 @@ void Polygon::add_node(double X, double Y)
 {
   Point newPoint;
   newPoint.set_values(X, Y);
-  append(newPoint*);
+  append(&newPoint);
 }
 
 void Polygon::populate(list<double>)
