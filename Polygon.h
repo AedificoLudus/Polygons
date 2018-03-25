@@ -5,6 +5,8 @@
 struct node
 {
 
+};
+
 class Polygon
 {
 public:

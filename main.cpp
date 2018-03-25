@@ -7,5 +7,6 @@ std::ifstream infile();
 
 int main()
 {
-  return 0;
+  MyPolygons input;
+  input.add_first();
 }

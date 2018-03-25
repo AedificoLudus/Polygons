@@ -2,7 +2,6 @@
 
 #include "Polygon.h"
 
-
 class MyPolygons
 {
 public:
@@ -20,4 +19,6 @@ public:
     void swap(node);
     Polygon* head();
     std::string to_string();
+
+
 };
