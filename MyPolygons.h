@@ -14,7 +14,7 @@ class MyPolygons
 public:
     mnode *current;
 
-    int counter = 0;
+    int mcounter = 0;
 
     mnode* create_node(Polygon* data);
     void reset();

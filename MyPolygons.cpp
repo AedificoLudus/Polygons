@@ -1,12 +1,12 @@
 #include "MyPolygons.h"
 #include "includes.h"
 
-int counter = 0;
+int mmcounter = 0;
 
 //dynaically allocate memory for Nodes
 mnode* MyPolygons::create_node(Polygon* data)
 {
-  counter++;
+  mmcounter++;
   mnode *temp;
   temp = new(struct mnode);
   temp->data = data;
@@ -74,14 +74,14 @@ void MyPolygons::insert_pos(Polygon* data, int pos)
   mnode *temp, *s, *ptr;
   temp = create_node(data);
   reset();
-  if (counter < pos)
+  if (mmcounter < pos)
   {
     std::cout << "Position out of range" << std::endl;
-    counter--;
+    mmcounter--;
     return;
     }
   s = current;
-  for (int i = 1; i <= counter; i++)
+  for (int i = 1; i <= mmcounter; i++)
   {
     ptr = s;
     s = s->next;
@@ -112,7 +112,7 @@ void MyPolygons::delete_pos(int pos)
   }
   s->prev->next = s->next;
   s->next->prev = s->prev;
-  counter--;
+  mmcounter--;
   free(s);
 }
 
@@ -134,7 +134,7 @@ Polygon* MyPolygons::head()
 std::string MyPolygons::to_string()
 {
   std::string ss = "";
-  for (int i=0;i<counter;i++)
+  for (int i=0;i<mcounter;i++)
   {
     std::cout << current->data->to_string() << "/n";
     current = current->next;

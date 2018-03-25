@@ -1,12 +1,12 @@
 #include "Polygon.h"
 #include "includes.h"
 
-int counter = 0;
+int pcounter = 0;
 
 //dynaically allocate memory for Nodes
 pnode* Polygon::create_node(Point* data)
 {
-    counter++;
+    pcounter++;
     pnode *temp;
     temp = new(struct pnode);
     temp->data = data;
@@ -74,14 +74,14 @@ void Polygon::insert_pos(Point* data, int pos)
     pnode *temp, *s, *ptr;
     temp = create_node(data);
     reset();
-    if (counter < pos)
+    if (pcounter < pos)
     {
         std::cout << "Position out of range" << std::endl;
-        counter--;
+        pcounter--;
         return;
     }
     s = current;
-    for (int i = 1; i <= counter; i++)
+    for (int i = 1; i <= pcounter; i++)
     {
         ptr = s;
         s = s->next;
@@ -112,7 +112,7 @@ void Polygon::delete_pos(int pos)
   }
   s->prev->next = s->next;
   s->next->prev = s->prev;
-  counter--;
+  pcounter--;
   free(s);
 }
 
@@ -132,7 +132,7 @@ double Polygon::calc_area()
 {
   double area = 0.00;
   reset();
-  for (int i=0; i < counter-2; i++)
+  for (int i=0; i < pcounter-2; i++)
   {
     double newX = (current->next->data->get_value(true) + current->data->get_value(true));
     double newY = (current->next->data->get_value(false) + current->data->get_value(false));
@@ -149,7 +149,7 @@ std::string Polygon::to_string()
   reset();
   std::stringstream ss;
   ss << "[";
-  for (int i=0;i<counter;i++)
+  for (int i=0;i<pcounter;i++)
   {
     ss << current->data->to_string() << ", ";
     current = current->next;
@@ -163,7 +163,7 @@ double Polygon::distance()
 {
   reset();
   double min = current->data->distance();
-  for (int i = 1; i < counter; i++)
+  for (int i = 1; i < pcounter; i++)
   {
     current = current->next;
     if (min > current->data->distance())

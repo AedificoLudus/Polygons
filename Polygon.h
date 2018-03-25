@@ -15,6 +15,8 @@ public:
 
     pnode *current;
 
+    int pcounter = 0;
+
     pnode *create_node(Point* data);
     void reset();
     void prepend(Point* data);

@@ -5,10 +5,10 @@ main.o: main.cpp MyPolygons.h
 	g++ -c -o main.o main.cpp
 
 MyPolgyons.o: MyPolygons.cpp MyPolygons.h Polygon.h
-	g++ -c -o MyPolgyons.o MyPolgyons.cpp
+	g++ -c -o MyPolygons.o MyPolygons.cpp
 
 Polygon.o: Polygon.cpp Point.h
-	g++ -c -o Poygon.o Polygon.cpp
+	g++ -c -o Polygon.o Polygon.cpp
 
 Point.o: Point.cpp Point.h
 	g++ -c -o Point.o Point.cpp
