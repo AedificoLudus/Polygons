@@ -3,6 +3,13 @@
 class Polygon {
 private:
 public:
+
+  struct node {
+    Point *data;
+    struct node *next;
+    struct node *prev;
+  }
+
   node *create_node(Point* data);
   void reset();
   void prepend(Point* data);
