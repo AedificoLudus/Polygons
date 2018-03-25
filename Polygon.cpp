@@ -150,10 +150,12 @@ double Polygon::calc_area()
 
 std::string Polygon::to_string()
 {
+  reset();
   std:;string ss = "[";
   for (int i=0;i<counter;i++)
   {
-    ss << i->data.to_string() << ","
+    ss << current->data.to_string() << ","
+    current = current->next;
   }
   ss.erase(ss.size()-1);
   ss << "]:" << std::to_strig(calc_area());
