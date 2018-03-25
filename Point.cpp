@@ -6,7 +6,7 @@ class Point {
   public:
     void set_values (double, double);
     double get_value(bool);
-    int distance ();
+    double distance ();
     std::string to_string ();
 }
 
@@ -27,7 +27,7 @@ double get_value(bool coord)
   }
 }
 
-int Point::distance () {
+double Point::distance () {
   return abs(sqrt(pow(xCoord, 2) + pow(yCoord, 2)));
 }
 

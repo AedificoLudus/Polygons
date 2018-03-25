@@ -186,6 +186,14 @@ std::string to_string()
 double distance()
 {
   reset();
-  double min =
-  return 0.00;
+  double min = current->data.distance();
+  for (int i = 1; i < counter; i++)
+  {
+    current = current->next;
+    if (min > current->data.distance())
+    {
+      min = current->data.distance();
+    }
+  }
+  return min;
 }
