@@ -1,4 +1,5 @@
-#include Polygon.h
+#include<Polygon.h>
+#include<MyPolygons.h>
 
 class MyPolygons {
   //prepend ()
