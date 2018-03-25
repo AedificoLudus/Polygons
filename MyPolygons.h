@@ -1,4 +1,7 @@
+#ifndef Polygon_h
+#define Polygon_h
 #include "Polygon.h"
+#endif
 
 class MyPolygons {
 private:

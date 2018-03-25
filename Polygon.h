@@ -1,4 +1,7 @@
+#ifndef Point_h
+#define Point_h
 #include "Point.h"
+#endif
 
 class Polygon {
 private:
@@ -8,7 +11,7 @@ public:
     Point *data;
     struct node *next;
     struct node *prev;
-  }
+  };
 
   node *create_node(Point* data);
   void reset();
