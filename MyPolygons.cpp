@@ -1,42 +1,13 @@
-#include "Polygon.h"
-
 #include "MyPolygons.h"
 
 #include <sstream>
 
 #include<cmath>
 
-//Declare Node
-struct mnode
-{
-  Polygon *data;
-  struct mnode *next;
-  struct mnode *prev;
-} *current;
 int counter = 0;
 
-//Declare Linked list
-class MyPolygons
-{
-  public:
-    mnode *create_mnode(Polygon* data);
-    void reset();
-    void prepend(Polygon* data);
-    void insert_last(Polygon* data);
-    void insert_pos(Polygon* data, int pos);
-    void delete_pos(Polygon* data, int pos);
-    void add_first();
-    void swap(mnode)
-    Polygon* head();
-    std::string to_string();
-    MyPolygons()
-    {
-      current = NULL;
-    }
-};
-
 //dynaically allocate memory for Nodes
-mnode* create_mnode(Polygon* data)
+mnode* MyPolygons::create_mnode(Polygon* data)
 {
   counter++;
   mnode *temp;
@@ -48,7 +19,7 @@ mnode* create_mnode(Polygon* data)
 }
 
 //search for a null node (the sentinel node)
-void reset()
+void MyPolygons::reset()
 {
   while (current->data != NULL)
   {
@@ -59,7 +30,7 @@ void reset()
 //insert a Node at the beginning
 void MyPolygons::prepend(Polygon* data)
 {
-  struct mnode *temp;
+  mnode *temp;
   temp = create_mnode(data);
   reset();
   if (current->next == current)
@@ -81,7 +52,7 @@ void MyPolygons::prepend(Polygon* data)
 //insert a node at the end
 void MyPolygons::insert_last(Polygon* data)
 {
-  struct mnode *temp;
+  mnode *temp;
   reset();
   temp = create_mnode(data);
   if (current->next == current)
@@ -103,7 +74,7 @@ void MyPolygons::insert_last(Polygon* data)
 //insert a node at a given position
 void MyPolygons::insert_pos(Polygon* data, int pos)
 {
-  struct mnode *temp, *s, *ptr;
+  mnode *temp, *s, *ptr;
   temp = create_mnode(data);
   reset();
   if (counter < pos)
@@ -128,7 +99,7 @@ void MyPolygons::insert_pos(Polygon* data, int pos)
 }
 
 //delete node at a given position
-void delete_pos(int pos)
+void MyPolygons::delete_pos(int pos)
 {
   mnode *s;
   reset();
@@ -148,7 +119,7 @@ void delete_pos(int pos)
   free(s);
 }
 
-void add_first()
+void MyPolygons::add_first()
 {
   insert_last(NULL);
 }
@@ -160,29 +131,29 @@ Polygon* head()
   return current->data;
 }
 
-void to_string()
+std::string MyPolygons::to_string()
 {
-  std:;string ss = "";
+  std::string ss = "";
   for (int i=0;i<counter;i++)
   {
     cout << i->data.to_string() << "/n"
   }
 }
 
-void swap()
+void MyPolygons::swap()
 //swap the current node with the next node in the list
 {
   if (current->next->data != NULL)
   {
-  current->next->prev = current->prev;
-  current->prev->next = current->next;
-  current->prev = current->next;
-  current->next->next = current;
-  current->next = current->next->next;
-}
+    current->next->prev = current->prev;
+    current->prev->next = current->next;
+    current->prev = current->next;
+    current->next->next = current;
+    current->next = current->next->next;
+  }
 }
 
-void sort()
+void MyPolygons::sort()
 {
     reset();
     while (current->next->data != NULL)
