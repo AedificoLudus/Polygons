@@ -5,4 +5,4 @@ public:
   void set_values(double, double);
   int distance();
   std::string to_string();
-}
+};

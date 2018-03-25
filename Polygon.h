@@ -1,6 +1,7 @@
+#include "Point.h"
+
 class Polygon {
 private:
-public:
 public:
   node *create_node(Point* data);
   void reset();
@@ -9,4 +10,4 @@ public:
   void insert_pos(Point* data, int pos);
   void delete_pos(Point* data, int pos);
   Point* head();
-}
+};

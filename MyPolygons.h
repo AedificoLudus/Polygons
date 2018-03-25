@@ -1,3 +1,5 @@
+#include "Polygon.h"
+
 class MyPolygons {
 private:
 public:
@@ -8,4 +10,4 @@ public:
   void insert_pos(Polygon* data, int pos);
   void delete_pos(Polygon* data, int pos);
   Polygon* head();
-}
+};
