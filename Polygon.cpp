@@ -10,7 +10,7 @@ struct node
   Point *data;
   struct node *next;
   struct node *prev;
-}*current
+};*current;
 int counter = 0;
 
 //Declare Linked list
