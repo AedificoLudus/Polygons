@@ -1,9 +1,5 @@
 #include "Polygon.h"
-
-#include <sstream>
-#include <iostream>
-
-#include<cmath>
+#include "includes.h"
 
 int counter = 0;
 
@@ -136,10 +132,10 @@ double Polygon::calc_area()
 {
   double area = 0.00;
   reset();
-  for (int i=0,i < counter-2;i++)
+  for (int i=0; i < counter-2; i++)
   {
-    double newX = (current->next.get_value(true) + current.get_value(true));
-    double newY = (current->next.get_value(false) + current.get_value(false));
+    double newX = (current->next->data->get_value(true) + current->data->get_value(true));
+    double newY = (current->next->data->get_value(false) + current->data->get_value(false));
     area += newX*newY;
     current = current->next;
   }
@@ -151,14 +147,15 @@ double Polygon::calc_area()
 std::string Polygon::to_string()
 {
   reset();
-  std:;string ss = "[";
+  std::stringstream ss;
+  ss << "[";
   for (int i=0;i<counter;i++)
   {
-    ss << current->data->to_string() << ","
+    ss << current->data->to_string() << ", ";
     current = current->next;
   }
-  ss.erase(ss.size()-1);
-  ss << "]:" << std::to_strig(calc_area());
+  ss.seekp(-1, ss.cur);
+  ss << "]:" << calc_area();
   return ss.str();
 }
 

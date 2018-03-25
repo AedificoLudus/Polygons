@@ -1,9 +1,5 @@
 #include "MyPolygons.h"
-
-#include <sstream>
-#include <iostream>
-
-#include<cmath>
+#include "includes.h"
 
 int counter = 0;
 

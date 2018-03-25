@@ -4,6 +4,10 @@ From starting the assignment (Mon 12th March) to Sun 25th March, my time was spe
 4 Days reading assignment specifications. Until I was satisfied I new the assignment properly.
 6 Days planning. Pseudocode and structure. (All digital files included, physical planning was largely impermenant so un-includable)
 3 Days coding.
+Day 1 of coding was structure, Point class and linked list creation.
+Day 2 of coding was Polygon class, MyPolygon class and error fixing.
+Day 3 of coding was main function, error fixing, mild optimisation and general tidying of code.
 
 Inheretance cases:
-It would be entirely possible to to create a special class of Polygons which have 4 points
+It would be entirely possible to to create a special class of Polygons which have 4 points which each match one coordinate with two other points. These could use a simplified area calculation.
+The increase computational need to locate these polygons on input would make this option non-viable if such shapes were not expected to appear with some level of frequency.

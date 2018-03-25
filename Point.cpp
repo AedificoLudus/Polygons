@@ -1,6 +1,5 @@
 #include "Point.h"
-#include<sstream>
-#include<cmath>
+#include "includes.h"
 
 void Point::set_values (double X, double Y) {
   xCoord = X;
