@@ -1,20 +1,18 @@
-#ifndef Polygon_h
-#define Polygon_h
-
 #include "Point.h"
+
+struct pnode
+{
+    Point *data;
+    pnode *next;
+    pnode *prev;
+};
 
 class Polygon
 {
-  private:
-  public:
-
-    struct pnode
-    {
-      Point *data;
-      struct pnode *next;
-      struct pnode *prev;
-    } *current;
-
+public:
+    
+    pnode *current;
+    
     pnode *create_pnode(Point* data);
     void reset();
     void prepend(Point* data);
@@ -27,5 +25,3 @@ class Polygon
     std::string to_string();
     double distance();
 };
-
-#endif
