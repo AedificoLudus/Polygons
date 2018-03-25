@@ -148,7 +148,7 @@ std::string MyPolygons::to_string()
 void MyPolygons::swap()
 //swap the current node with the next node in the list
 {
-  if (current->next->data != NULL)
+  if (current->data != NULL && current->next->data != NULL)
   {
     current->next->prev = current->prev;
     current->prev->next = current->next;
