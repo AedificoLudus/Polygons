@@ -140,7 +140,7 @@ std::string MyPolygons::to_string()
   std::string ss = "";
   for (int i=0;i<counter;i++)
   {
-    std::cout << current->data.to_string() << "/n"
+    std::cout << current->data->to_string() << "/n";
     current = current->next;
   }
 }
@@ -163,11 +163,11 @@ void MyPolygons::sort()
     reset();
     while (current->next->data != NULL)
     {
-      double A = current->data.calc_area(); //this is just to make it more readable
-      double B = current->next->data.calc_area();
-      if(abs((fmax(A,B)-fmin(A,B))/fmin(a,b) < 0.05) // divide the two numbers with respect to the lower number
+      double A = current->data->calc_area(); //this is just to make it more readable
+      double B = current->next->data->calc_area();
+      if(abs((fmax(A,B)-fmin(A,B))/fmin(A,B) < 0.05)) // divide the two numbers with respect to the lower number
       {
-        if(current->data.distance() > current->next->data.distance())
+        if(current->data->distance() > current->next->data->distance())
         {
           swap();
         }

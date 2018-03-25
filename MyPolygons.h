@@ -24,6 +24,7 @@ public:
     void delete_pos(int pos);
     void add_first();
     void swap(mnode);
+    void sort();
     Polygon* head();
     std::string to_string();
 

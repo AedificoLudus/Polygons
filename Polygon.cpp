@@ -154,7 +154,7 @@ std::string Polygon::to_string()
   std:;string ss = "[";
   for (int i=0;i<counter;i++)
   {
-    ss << current->data.to_string() << ","
+    ss << current->data->to_string() << ","
     current = current->next;
   }
   ss.erase(ss.size()-1);
@@ -165,13 +165,13 @@ std::string Polygon::to_string()
 double Polygon::distance()
 {
   reset();
-  double min = current->data.distance();
+  double min = current->data->distance();
   for (int i = 1; i < counter; i++)
   {
     current = current->next;
-    if (min > current->data.distance())
+    if (min > current->data->distance())
     {
-      min = current->data.distance();
+      min = current->data->distance();
     }
   }
   return min;
