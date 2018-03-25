@@ -2,11 +2,207 @@
 
 #include "MyPolygons.h"
 
-class MyPolygons {
-  //prepend ()
-  //append ()
-  //insert()
-  //reset()
-  //head()
-  return;
+#include <stringstream>
+
+#include<cmath>
+
+//Declare Node
+struct node
+{
+  Polygon *data;
+  struct node *next;
+  struct node *prev;
+} *current;
+int counter = 0;
+
+//Declare Linked list
+class MyPolygons
+{
+  public:
+    node *create_node(Polygon* data);
+    void reset();
+    void prepend(Polygon* data);
+    void insert_last(Polygon* data);
+    void insert_pos(Polygon* data, int pos);
+    void delete_pos(Polygon* data, int pos);
+    void add_first();
+    void swap(node)
+    Polygon* head();
+    std::string to_string();
+    MyPolygons()
+    {
+      current = NULL;
+    }
+};
+
+//dynaically allocate memory for Nodes
+node* create_node(Polygon* data)
+{
+  counter++;
+  node *temp;
+  temp = new(struct node);
+  temp->data = data;
+  temp->next = NULL;
+  temp->prev = NULL;
+  return temp;
+}
+
+//search for a null node (the sentinel node)
+void reset()
+{
+  while (current->data != NULL)
+  {
+    current = current->next;
+  }
+}
+
+//insert a Node at the beginning
+void MyPolygons::prepend(Polygon* data)
+{
+  struct node *temp;
+  temp = create_node(data);
+  reset();
+  if (current->next == current)
+  {
+    temp->next = current;
+    temp->prev = current;
+    current->next = temp;
+    current->prev = temp;
+  }
+  else
+  {
+    temp->next = current->next;
+    temp->prev = current;
+    current->next->prev = temp;
+    current->next = temp;
+  }
+}
+
+//insert a node at the end
+void MyPolygons::insert_last(Polygon* data)
+{
+  struct node *temp;
+  reset();
+  temp = create_node(data);
+  if (current->next == current)
+  {
+    current->next = temp;
+    current->prev = temp;
+    temp->next = current;
+    temp->prev = current;
+  }
+  else
+  {
+    current->prev->next = temp;
+    temp->prev = current->prev;
+    current->prev = temp;
+    temp->next = current;
+  }
+}
+
+//insert a node at a given position
+void MyPolygons::insert_pos(Polygon* data, int pos)
+{
+  struct node *temp, *s, *ptr;
+  temp = create_node(data);
+  reset();
+  if (counter < pos)
+  {
+    std::cout << "Position out of range" << std::endl;
+    counter--;
+    return;
+    }
+  s = current;
+  for (int i = 1; i <= counter; i++)
+  {
+    ptr = s;
+    s = s->next;
+    if (i == pos - 1)
+    {
+      ptr->next = temp;
+      temp->prev = ptr;
+      s->prev = temp;
+      break;
+    }
+  }
+}
+
+//delete node at a given position
+void delete_pos(int pos)
+{
+  node *s;
+  reset();
+  if (current->next == current)
+  {
+    std::cout << "Empty List" << std::endl;
+    return;
+  }
+  s = current;
+  for (int i = 0; i < pos - 1; i++)
+  {
+    s = s->next;
+  }
+  s->prev->next = s->next;
+  s->next->prev = s->prev;
+  counter--;
+  free(s);
+}
+
+void add_first()
+{
+  insert_last(NULL);
+}
+
+Polygon* head()
+{
+  reset();
+  current = current->next;
+  return current->data;
+}
+
+void to_string()
+{
+  std:;string ss = "";
+  for (int i=0;i<counter;i++)
+  {
+    cout << i->data.to_string() << "/n"
+  }
+}
+
+void swap()
+//swap the current node with the next node in the list
+{
+  if (current->next->data != NULL)
+  {
+  current->next->prev = current->prev;
+  current->prev->next = current->next;
+  current->prev = current->next;
+  current->next->next = current;
+  current->next = current->next->next;
+}
+}
+
+void sort()
+{
+    reset();
+    while (current->next->data != NULL)
+    {
+      double A = current->data.calc_area(); //this is just to make it more readable
+      double B = current->next->data.calc_area();
+      if(abs((fmax(A,B)-fmin(A,B))/fmin(a,b) < 0.05) // divide the two numbers with respect to the lower number
+      {
+        if(current->data.distance() > current->next->data.distance())
+        {
+          swap();
+        }
+      }
+      else
+      {
+        if(A > B)
+        {
+          swap()
+        }
+      }
+      current = current->next;
+    }
 }

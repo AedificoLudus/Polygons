@@ -16,8 +16,10 @@ struct node
 int counter = 0;
 
 //Declare Linked list
-class list
+class
 {
+  private:
+
   public:
     node *create_node(Point* data);
     void reset();
@@ -25,11 +27,12 @@ class list
     void insert_last(Point* data);
     void insert_pos(Point* data, int pos);
     void delete_pos(Point* data, int pos);
+    void add_first();
     Point* head();
     double calc_area():
     std::string to_string();
     double distance();
-    list()
+    Polygon()
     {
       current = NULL;
     }
@@ -50,14 +53,14 @@ node* create_node(Point* data)
 //search for a null node (the sentinel node)
 void reset()
 {
-  while (current != NULL)
+  while (current->data != NULL)
   {
     current = current->next;
   }
 }
 
 //insert a Node at the beginning
-void list::prepend(Point* data)
+void Polygon::prepend(Point* data)
 {
   struct node *temp;
   temp = create_node(data);
@@ -79,7 +82,7 @@ void list::prepend(Point* data)
 }
 
 //insert a node at the end
-void list::insert_last(Point* data)
+void Polygon::insert_last(Point* data)
 {
   struct node *temp;
   reset();
@@ -101,7 +104,7 @@ void list::insert_last(Point* data)
 }
 
 //insert a node at a given position
-void list::insert_pos(Point* data, int pos)
+void Polygon::insert_pos(Point* data, int pos)
 {
   struct node *temp, *s, *ptr;
   temp = create_node(data);
@@ -148,6 +151,11 @@ void delete_pos(int pos)
   free(s);
 }
 
+void add_first()
+{
+  insert_last(NULL);
+}
+
 Point* head()
 {
   reset();
@@ -173,7 +181,7 @@ double calc_area()
 
 std::string to_string()
 {
-  std:;string ss = "]";
+  std:;string ss = "[";
   for (int i=0;i<counter;i++)
   {
     ss << i->data.to_string() << ","
