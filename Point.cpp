@@ -1,4 +1,4 @@
-#include<Point.h>
+ #include "Point.h"
 
 class Point {
     double xCoord, yCoord;
