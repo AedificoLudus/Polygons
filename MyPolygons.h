@@ -13,7 +13,8 @@ public:
     Point *data;
     struct mnode *next;
     struct mnode *prev;
-  } *current;
+  };
+  mnode *current;
 
 
   int counter = 0;

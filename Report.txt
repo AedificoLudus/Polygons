@@ -1,0 +1,6 @@
+Time Distribution:
+
+From starting the assignment (Mon 12th March) to Sun 25th March, my time was spent:
+4 Days reading assignment specifications. Until I was satisfied I new the assignment properly.
+6 Days planning. Pseudocode and structure. (All digital files included, physical planning was largely impermenant so un-includable)
+3 Days coding.
