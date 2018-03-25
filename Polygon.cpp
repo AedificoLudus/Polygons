@@ -1,17 +1,8 @@
-#ifndef Point_h
-#define Point_h
 #include "Point.h"
-#endif
 
-#ifndef Polygon_h
-#define Polygon_h
 #include "Polygon.h"
-#endif
 
-#ifndef iostream
-#define iostream
 #include <iostream>
-#endif
 
 //Declare Node
 struct node

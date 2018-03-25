@@ -1,7 +1,5 @@
-#ifndef Polygon_h
-#define Polygon_h
-#include "Polygon.h"
-#endif
+#ifndef MyPolygons_h
+#define MyPolygons_h
 
 class MyPolygons {
 private:
@@ -14,3 +12,5 @@ public:
   void delete_pos(Polygon* data, int pos);
   Polygon* head();
 };
+
+#endif

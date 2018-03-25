@@ -1,7 +1,4 @@
-#ifndef Point_h
-#define Point_h
 #include "Point.h"
-#endif
 
 class Point {
     double xCoord, yCoord;
