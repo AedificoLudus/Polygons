@@ -176,7 +176,7 @@ void MyPolygons::sort()
       {
         if(A > B)
         {
-          swap()
+          swap();
         }
       }
       current = current->next;
