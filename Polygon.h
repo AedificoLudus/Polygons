@@ -24,7 +24,7 @@ class Polygon
     void delete_pos(Point* data, int pos);
     void add_first();
     Point* head();
-    double calc_area():
+    double calc_area();
     std::string to_string();
     double distance();
 };
