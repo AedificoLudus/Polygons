@@ -2,12 +2,13 @@
 #include<stringstream>
 
 class Point {
+  private:
     double xCoord, yCoord;
   public:
-    void set_values (double, double);
+    void set_values(double, double);
     double get_value(bool);
-    double distance ();
-    std::string to_string ();
+    double distance();
+    std::string to_string();
 }
 
 void Point::set_values (double X, double Y) {
