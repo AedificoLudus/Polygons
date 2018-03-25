@@ -11,14 +11,14 @@ class Polygon
   private:
   public:
 
-    struct node
+    struct pnode
     {
       Point *data;
-      struct node *next;
-      struct node *prev;
+      struct pnode *next;
+      struct pnode *prev;
     };
 
-    node *create_node(Point* data);
+    pnode *create_pnode(Point* data);
     void reset();
     void prepend(Point* data);
     void insert_last(Point* data);

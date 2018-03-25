@@ -7,11 +7,11 @@
 #include<cmath>
 
 //Declare Node
-struct node
+struct mnode
 {
   Polygon *data;
-  struct node *next;
-  struct node *prev;
+  struct mnode *next;
+  struct mnode *prev;
 } *current;
 int counter = 0;
 
@@ -19,14 +19,14 @@ int counter = 0;
 class MyPolygons
 {
   public:
-    node *create_node(Polygon* data);
+    mnode *create_mnode(Polygon* data);
     void reset();
     void prepend(Polygon* data);
     void insert_last(Polygon* data);
     void insert_pos(Polygon* data, int pos);
     void delete_pos(Polygon* data, int pos);
     void add_first();
-    void swap(node)
+    void swap(mnode)
     Polygon* head();
     std::string to_string();
     MyPolygons()
@@ -36,11 +36,11 @@ class MyPolygons
 };
 
 //dynaically allocate memory for Nodes
-node* create_node(Polygon* data)
+mnode* create_mnode(Polygon* data)
 {
   counter++;
-  node *temp;
-  temp = new(struct node);
+  mnode *temp;
+  temp = new(struct mnode);
   temp->data = data;
   temp->next = NULL;
   temp->prev = NULL;
@@ -59,8 +59,8 @@ void reset()
 //insert a Node at the beginning
 void MyPolygons::prepend(Polygon* data)
 {
-  struct node *temp;
-  temp = create_node(data);
+  struct mnode *temp;
+  temp = create_mnode(data);
   reset();
   if (current->next == current)
   {
@@ -81,9 +81,9 @@ void MyPolygons::prepend(Polygon* data)
 //insert a node at the end
 void MyPolygons::insert_last(Polygon* data)
 {
-  struct node *temp;
+  struct mnode *temp;
   reset();
-  temp = create_node(data);
+  temp = create_mnode(data);
   if (current->next == current)
   {
     current->next = temp;
@@ -103,8 +103,8 @@ void MyPolygons::insert_last(Polygon* data)
 //insert a node at a given position
 void MyPolygons::insert_pos(Polygon* data, int pos)
 {
-  struct node *temp, *s, *ptr;
-  temp = create_node(data);
+  struct mnode *temp, *s, *ptr;
+  temp = create_mnode(data);
   reset();
   if (counter < pos)
   {
@@ -130,7 +130,7 @@ void MyPolygons::insert_pos(Polygon* data, int pos)
 //delete node at a given position
 void delete_pos(int pos)
 {
-  node *s;
+  mnode *s;
   reset();
   if (current->next == current)
   {

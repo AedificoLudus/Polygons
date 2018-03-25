@@ -7,11 +7,11 @@
 #include<cmath>
 
 //Declare Node
-struct node
+struct pnode
 {
   Point *data;
-  struct node *next;
-  struct node *prev;
+  struct pnode *next;
+  struct pnode *prev;
 } *current;
 int counter = 0;
 
@@ -21,7 +21,7 @@ class
   private:
 
   public:
-    node *create_node(Point* data);
+    pnode *create_pnode(Point* data);
     void reset();
     void prepend(Point* data);
     void insert_last(Point* data);
@@ -39,11 +39,11 @@ class
 };
 
 //dynaically allocate memory for Nodes
-node* create_node(Point* data)
+pnode* create_pnode(Point* data)
 {
   counter++;
-  node *temp;
-  temp = new(struct node);
+  pnode *temp;
+  temp = new(struct pnode);
   temp->data = data;
   temp->next = NULL;
   temp->prev = NULL;
@@ -62,8 +62,8 @@ void reset()
 //insert a Node at the beginning
 void Polygon::prepend(Point* data)
 {
-  struct node *temp;
-  temp = create_node(data);
+  struct pnode *temp;
+  temp = create_pnode(data);
   reset();
   if (current->next == current)
   {
@@ -84,9 +84,9 @@ void Polygon::prepend(Point* data)
 //insert a node at the end
 void Polygon::insert_last(Point* data)
 {
-  struct node *temp;
+  struct pnode *temp;
   reset();
-  temp = create_node(data);
+  temp = create_pnode(data);
   if (current->next == current)
   {
     current->next = temp;
@@ -106,8 +106,8 @@ void Polygon::insert_last(Point* data)
 //insert a node at a given position
 void Polygon::insert_pos(Point* data, int pos)
 {
-  struct node *temp, *s, *ptr;
-  temp = create_node(data);
+  struct pnode *temp, *s, *ptr;
+  temp = create_pnode(data);
   reset();
   if (counter < pos)
   {
@@ -133,7 +133,7 @@ void Polygon::insert_pos(Point* data, int pos)
 //delete node at a given position
 void delete_pos(int pos)
 {
-  node *s;
+  pnode *s;
   reset();
   if (current->next == current)
   {
