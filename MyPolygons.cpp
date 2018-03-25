@@ -125,11 +125,14 @@ void MyPolygons::add_first()
   append(NULL);
 }
 
-Polygon* head()
+Polygon* MyPolygons::head()
 {
-  reset();
-  current = current->next;
-  return current->data;
+  if(current->data != NULL)
+  {
+    reset();
+    current = current->next;
+    return current->data;
+  }
 }
 
 std::string MyPolygons::to_string()
@@ -137,7 +140,8 @@ std::string MyPolygons::to_string()
   std::string ss = "";
   for (int i=0;i<counter;i++)
   {
-    cout << i->data.to_string() << "/n"
+    std::cout << current->data.to_string() << "/n"
+    current = current->next;
   }
 }
 
