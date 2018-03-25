@@ -1,3 +1,6 @@
+#Open source, standard makefile from MrBook.org
+
+
 CC=g++
 CFLAGS=-c -Wall
 LDFLAGS=
