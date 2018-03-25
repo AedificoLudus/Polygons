@@ -8,7 +8,10 @@
 #include "Polygon.h"
 #endif
 
-#include<iostream>
+#ifndef iostream
+#define iostream
+#include <iostream>
+#endif
 
 //Declare Node
 struct node

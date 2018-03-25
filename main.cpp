@@ -1,4 +1,7 @@
+#ifndef iostream
+#define iostream
 #include <iostream>
+#endif
 
 #ifndef MyPolygons_h:
 #define MyPolygons_h
