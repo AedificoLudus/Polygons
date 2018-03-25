@@ -2,12 +2,6 @@
 
 #include "Polygon.h"
 
-struct mnode
-{
-  Point *data;
-  mnode *next;
-  mnode *prev;
-}
 
 class MyPolygons
 {
