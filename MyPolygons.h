@@ -1,3 +1,8 @@
+#ifndef Point_h
+#define Point_h
+#include "Point.h"
+#endif
+
 #ifndef MyPolygons_h
 #define MyPolygons_h
 
