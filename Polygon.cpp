@@ -10,7 +10,7 @@ struct node
   Point *data;
   struct node *next;
   struct node *prev;
-};*current;
+} *current;
 int counter = 0;
 
 //Declare Linked list
@@ -31,14 +31,14 @@ class list
 };
 
 //dynaically allocate memory for Nodes
-node* node::create_node(Point* data)
+node* create_node(Point* data)
 {
-  counter++
-  struct node *temp;
+  counter++;
+  node *temp;
   temp = new(struct node);
   temp->data = data;
   temp->next = NULL;
-  temp-?prev = NULL;
+  temp->prev = NULL;
   return temp;
 }
 
@@ -107,12 +107,12 @@ void list::insert_pos(Point* data, int pos)
   reset();
   if (counter < pos)
   {
-    cout<<"Position out of range"<<endl;
+    std::cout << "Position out of range" << std::endl;
     counter--;
     return;
     }
   s = current;
-  for (i = 1; i <= counter; i++)
+  for (int i = 1; i <= counter; i++)
   {
     ptr = s;
     s = s->next;
@@ -127,38 +127,47 @@ void list::insert_pos(Point* data, int pos)
 }
 
 //delete node at a given position
-void list::delete_pos(int pos)
+void delete_pos(int pos)
 {
   node *s;
   reset();
   if (current->next == current)
   {
-    cout<<"Empty List"<<endl;
+    std::cout << "Empty List" << std::endl;
     return;
   }
   s = current;
-  for (i = 0; i < pos - 1; i++)
+  for (int i = 0; i < pos - 1; i++)
   {
     s = s->next;
   }
-  s->prev->next = s-next
-  s->next->prev = ptrs->prev;
+  s->prev->next = s->next;
+  s->next->prev = s->prev;
   counter--;
   free(s);
 }
 
 Point* head()
 {
-  rest();
+  reset();
   current = current->next;
   return current->data;
 }
 
-class Polygon
+void to_string()
 {
-  //circular, doubly linked list
-  //to_string()
-  //calc_area()
-  //distance()
-  //add_point()
+  for (i=0;i<counter;i++)
+  {
+    i->data.to_string();
+  }
+}
+
+double calc_area()
+{
+  return 0.00;
+}
+
+double distance()
+{
+  return 0.00;
 }

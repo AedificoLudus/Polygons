@@ -14,11 +14,11 @@ void Point::set_values (double X, double Y) {
 }
 
 int Point::distance () {
-  return abs(sqrt(xCoord^2+yCoord^2);
+  return abs(sqrt(pow(xCoord, 2) + pow(yCoord, 2)));
 }
 
 std::string to_string () {
-  std::stringstreamss;
+  std::stringstream ss;
   ss << "(" << xCoord << ", " << yCoord << ")";
   return ss.str();
 }

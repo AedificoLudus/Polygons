@@ -1,6 +1,3 @@
-
-SOURCES=main.cpp MyPolygons.cpp Point.cpp Polygons.cpp
-
 prog: main.o MyPolygons.o Polygons.o Point.o
 	g++ -o prog main.o MyPolygons.o Polygon.o Point.o
 
