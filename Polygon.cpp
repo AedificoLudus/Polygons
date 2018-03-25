@@ -1,6 +1,7 @@
 #include "Polygon.h"
 
 #include <sstream>
+#include <iostream>
 
 #include<cmath>
 
