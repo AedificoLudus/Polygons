@@ -136,7 +136,7 @@ std::string MyPolygons::to_string()
   std::string ss = "";
   for (int i=0;i<mcounter;i++)
   {
-    std::cout << current->data->to_string() << "/n";
+    std::cout << current->data->to_string() << "\n";
     current = current->next;
   }
 }
