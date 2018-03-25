@@ -16,7 +16,8 @@ class Polygon
       Point *data;
       struct pnode *next;
       struct pnode *prev;
-    };
+    } *current;
+    typedef pnode pnode;
 
     pnode *create_pnode(Point* data);
     void reset();

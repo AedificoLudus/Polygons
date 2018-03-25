@@ -1,5 +1,5 @@
 #include "Point.h"
-#include<stringstream>
+#include<sstream>
 
 class Point {
   private:

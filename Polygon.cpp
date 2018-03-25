@@ -2,7 +2,7 @@
 
 #include "Polygon.h"
 
-#include <stringstream>
+#include <sstream>
 
 #include<cmath>
 
@@ -12,7 +12,10 @@ struct pnode
   Point *data;
   struct pnode *next;
   struct pnode *prev;
-} *current;
+};
+typedef pnode pnode;
+
+*current;
 int counter = 0;
 
 //Declare Linked list

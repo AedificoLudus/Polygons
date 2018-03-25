@@ -14,6 +14,19 @@
 class MyPolygons {
 private:
 public:
+
+  //Declare Node
+  struct mnode
+  {
+    Point *data;
+    struct mnode *next;
+    struct mnode *prev;
+  } *current;
+typedef mnode mnode;
+
+
+  int counter = 0;
+
   mnode *create_mnode(Polygon* data);
   void reset();
   void prepend(Polygon* data);

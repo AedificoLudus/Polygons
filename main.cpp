@@ -1,13 +1,11 @@
-#include <stringstream>
-#include <ifstream>
+#include <sstream>
+#include <fstream>
 
 #include "MyPolygons.h"
 
-cout << "Enter File"
-std::string input = cin <<
-std::ifstream infile()
+std::ifstream infile();
 
 int main()
 {
-  std::ifstream infile("")
+  std::ifstream infile("");
 }
