@@ -1,22 +1,17 @@
 #pragma once
 
 #include <sstream>
-#include <iostream>
-#include <fstream>
 #include <cmath>
 #include <string>
-#include <algorithm>
-#include <iterator>
-#include <list>
-#include <stdlib.h>
-#include <vector>
-class Point
-{
-private:
-  double xCoord, yCoord;
+
+class Point {
+  double x, y;
 public:
-  void set_values(double, double);
-  double get_value(bool);
-  double distance();
+  Point();
+  Point(double x, double y);
+  void set(double x, double y);
+  double get_x();
+  double get_y();
+  double magnitude();
   std::string to_string();
 };

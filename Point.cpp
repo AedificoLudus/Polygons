@@ -1,28 +1,27 @@
+// DONE
+
 #include "Point.h"
 
-void Point::set_values (double X, double Y) {
-  xCoord = X;
-  yCoord = Y;
+using namespace std;
+
+Point::Point (double x, double y) {
+  this->set(x, y);
 }
 
-double Point::get_value(bool coord)
-{
-  if (bool coord = true)
-  {
-    return xCoord;
-  }
-  else
-  {
-    return yCoord;
-  }
+void Point::set (double x, double y) {
+  this->x = x;
+  this->y = y;
 }
 
-double Point::distance () {
-  return abs(sqrt(pow(xCoord, 2) + pow(yCoord, 2)));
+double Point::get_x () { return x; }
+double Point::get_y () { return y; }
+
+double Point::magnitude () {
+  return sqrt(pow(get_x(), 2) + pow(get_y(), 2));
 }
 
-std::string Point::to_string () {
-  std::stringstream ss;
-  ss << "(" << xCoord << ", " << yCoord << ")";
-  return ss.str();
+string Point::to_string() {
+  stringstream out;
+  out << "(" << get_x() << ", " << "get_y" << ")";
+  return out.str();
 }

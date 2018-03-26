@@ -1,6 +1,7 @@
-#include "MyPolygons.h"
+#include <sstream>
+#include <iostream>
 
-int mmcounter = 0;
+#include "MyPolygons.h"
 
 MyPolygons::MyPolygons () {
   sentinel.isSentinel = true;
@@ -58,21 +59,18 @@ Polygon MyPolygons::take () {
   return out;
 }
 
-std::string MyPolygons::to_string()
-{
+std::string MyPolygons::to_string() {
   std::string ss = "";
-  for (int i=0;i<mcounter;i++)
+  reset();
+  while (&sentinel != current)
   {
-    std::cout << current->data->to_string() << "\n";
-    current = current->next;
+    std::cout << current->polygon.to_string() << "\n";
+    step();
   }
 }
 
-void MyPolygons::swap()
-//swap the current node with the next node in the list
-{
-  if (current->data != nullptr && current->next->data != nullptr)
-  {
+void MyPolygons::swap() {
+  if (current != &sentinel && current->next != &sentinel) {
     current->next->prev = current->prev;
     current->prev->next = current->next;
     current->prev = current->next;
@@ -81,24 +79,17 @@ void MyPolygons::swap()
   }
 }
 
-void MyPolygons::sort()
-{
+void MyPolygons::sort() {
     reset();
-    while (current->next->data != nullptr)
-    {
-      double A = current->data->calc_area(); //this is just to make it more readable
-      double B = current->next->data->calc_area();
-      if(abs((fmax(A,B)-fmin(A,B))/fmin(A,B) < 0.05)) // divide the two numbers with respect to the lower number
-      {
-        if(current->data->distance() > current->next->data->distance())
-        {
+    while (current->next != &sentinel) {
+      double A = current->polygon.calculateArea(); //this is just to make it more readable
+      double B = current->next->polygon.calculateArea();
+      if(abs((fmax(A,B)-fmin(A,B))/fmin(A,B) < 0.05)) { // divide the two numbers with respect to the lower number
+        if(current->polygon.minDistance() > current->next->polygon.minDistance()) {
           swap();
         }
-      }
-      else
-      {
-        if(A > B)
-        {
+      } else {
+        if(A > B) {
           swap();
         }
       }
