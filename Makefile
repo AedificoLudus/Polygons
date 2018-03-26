@@ -1,3 +1,5 @@
+-fsanitize=address
+
 PA1:	main.o MyPolygons.o Polygon.o Point.o
 	g++ -g -o PA1 main.o MyPolygons.o Polygon.o Point.o
 

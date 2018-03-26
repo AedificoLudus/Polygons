@@ -5,8 +5,8 @@
 using namespace std;
 
 Point::Point() {
-  this->x;
-  this->y;
+  this->x = 0.00;
+  this->y = 0.00;
 }
 
 Point::Point (double x, double y) {
@@ -27,6 +27,6 @@ double Point::magnitude () {
 
 string Point::to_string() {
   stringstream out;
-  out << "(" << get_x() << ", " << "get_y" << ")";
+  out << "(" << get_x() << ", " << get_y() << ")";
   return out.str();
 }
