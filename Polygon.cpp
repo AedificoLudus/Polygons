@@ -176,12 +176,12 @@ double Polygon::distance()
 
 void Polygon::add_node(double X, double Y)
 {
-  Point newPoint;
+  Point* tempPoint = new Point;
   newPoint.set_values(X, Y);
-  append(&newPoint);
+  append(newPoint);
 }
 
-void Polygon::populate(list<double>)
+void Polygon::populate(std::vector<double>)
 {
   add_first();
   for(int i = 2; i < length*2; i += 2)

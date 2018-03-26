@@ -6,3 +6,5 @@
 #include <algorithm>
 #include <iterator>
 #include <list>
+#include <stdlib.h>
+#include <vector> 

@@ -19,7 +19,8 @@ int main()
   std::getline(inputFile, currentLine);
   do {
     int length = currentLine.at(2);
-    std::list<double> points;
+    std::vector<std::string> tokens;
+    std::vector<double> points;
      //[(length*2)+2];
     for (int i = 0; i < 1; i++)
     {
@@ -27,7 +28,12 @@ int main()
       istringstream iss(currentLine);
       copy(istream_iterator<string>(iss),
           istream_iterator<string>(),
-          back_inserter(points));
+          back_inserter(tokens));
+      tokens.erase(tokens.begin(), tokens.begin()+1);
+      for (int i = 0; i < tokens.size(); i++)
+      {
+        points.push_back(std::stod(tokens[i]));
+      }
     }
     Polygon temp;
     temp.populate(points);
