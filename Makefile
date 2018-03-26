@@ -1,5 +1,7 @@
 GXX = g++
 
+-sanitize=address
+
 PA1:	main.o MyPolygons.o Polygon.o Point.o
 	$(GXX) -o PA1 main.o MyPolygons.o Polygon.o Point.o
 

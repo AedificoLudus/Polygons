@@ -9,18 +9,21 @@ pnode* Polygon::create_node(Point* data)
     pnode *temp;
     temp = new(struct pnode);
     temp->data = data;
-    temp->next = NULL;
-    temp->prev = NULL;
+    temp->next = nullptr;
+    temp->prev = nullptr;
     return temp;
 }
 
 //search for a null node (the sentinel node)
 void Polygon::reset()
 {
-    while (current->data != NULL)
+  if(current)
+  {
+    while (current->data != nullptr)
     {
         current = current->next;
     }
+  }
 }
 
 //insert a Node at the beginning
@@ -117,7 +120,7 @@ void Polygon::delete_pos(int pos)
 
 void Polygon::add_first()
 {
-  append(NULL);
+  append(nullptr);
 }
 
 Point* Polygon::head()

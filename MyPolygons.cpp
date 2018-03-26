@@ -9,15 +9,15 @@ mnode* MyPolygons::create_node(Polygon* data)
   mnode *temp;
   temp = new(struct mnode);
   temp->data = data;
-  temp->next = NULL;
-  temp->prev = NULL;
+  temp->next = nullptr;
+  temp->prev = nullptr;
   return temp;
 }
 
 //search for a null node (the sentinel node)
 void MyPolygons::reset()
 {
-  while (current->data != NULL)
+  while (current->data != nullptr)
   {
     current = current->next;
   }
@@ -117,12 +117,12 @@ void MyPolygons::delete_pos(int pos)
 
 void MyPolygons::add_first()
 {
-  append(NULL);
+  append(nullptr);
 }
 
 Polygon* MyPolygons::head()
 {
-  if(current->data != NULL)
+  if(current->data != nullptr)
   {
     reset();
     current = current->next;
@@ -143,7 +143,7 @@ std::string MyPolygons::to_string()
 void MyPolygons::swap()
 //swap the current node with the next node in the list
 {
-  if (current->data != NULL && current->next->data != NULL)
+  if (current->data != nullptr && current->next->data != nullptr)
   {
     current->next->prev = current->prev;
     current->prev->next = current->next;
@@ -156,7 +156,7 @@ void MyPolygons::swap()
 void MyPolygons::sort()
 {
     reset();
-    while (current->next->data != NULL)
+    while (current->next->data != nullptr)
     {
       double A = current->data->calc_area(); //this is just to make it more readable
       double B = current->next->data->calc_area();
