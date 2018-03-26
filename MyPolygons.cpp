@@ -15,6 +15,19 @@ void MyPolygons::reset () {
   current = sentinel.next;
 }
 
+void MyPolygons::append (Polygon polygon) {
+  Node node;
+  node.polygon = polygon;
+  node.isSentinel = false;
+  current = &node;
+
+  node.prev = sentinel.prev;
+  node.next = &sentinel;
+
+  sentinel.prev->next = &node;
+  sentinel.prev = &node;
+}
+
 //insert a Node at the beginning
 void MyPolygons::prepend (Polygon polygon) {
   Node node;
