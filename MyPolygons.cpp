@@ -125,7 +125,7 @@ void MyPolygons::add_first()
 {
     mnode *temp;
     temp = create_node(nullptr);
-    *current = temp;
+    current = temp;
     current->prev->next = temp;
     temp->prev = current->prev;
     current->prev = temp;

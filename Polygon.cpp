@@ -185,7 +185,7 @@ void Polygon::add_first()
 {
     pnode *temp;
     temp = create_node(nullptr);
-    *current = temp
+    current = temp;
     current->prev->next = temp;
     temp->prev = current->prev;
     current->prev = temp;
