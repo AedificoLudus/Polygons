@@ -1,4 +1,4 @@
-prog: polygons.exe
+PA1: polygons.exe
 
 polygons.exe:	main.o MyPolygons.o Polygon.o Point.o
 	g++ -o prog main.o MyPolygons.o Polygon.o Point.o
