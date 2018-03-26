@@ -1,5 +1,4 @@
 #include "Point.h"
-#include "includes.h"
 
 void Point::set_values (double X, double Y) {
   xCoord = X;

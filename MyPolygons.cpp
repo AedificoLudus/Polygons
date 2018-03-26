@@ -1,5 +1,4 @@
 #include "MyPolygons.h"
-#include "includes.h"
 
 int mmcounter = 0;
 

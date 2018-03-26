@@ -1,4 +1,3 @@
-#include "includes.h"
 #include "MyPolygons.h"
 
 int main()

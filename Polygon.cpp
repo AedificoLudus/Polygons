@@ -1,5 +1,4 @@
 #include "Polygon.h"
-#include "includes.h"
 
 int pcounter = 0;
 
