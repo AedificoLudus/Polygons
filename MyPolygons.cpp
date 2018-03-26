@@ -5,7 +5,9 @@ int mmcounter = 0;
 MyPolygons::MyPolygons()
 {
   current = create_node(nullptr);
-};
+  current->next = current;
+  current->prev = current;
+}
 
 //dynaically allocate memory for Nodes
 mnode* MyPolygons::create_node(Polygon* data)

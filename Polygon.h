@@ -17,6 +17,7 @@ public:
 
     int pcounter = 0;
 
+
     pnode *create_node(Point* data);
     void reset();
     void prepend(Point* data);
@@ -29,4 +30,5 @@ public:
     double distance();
     void add_node(double, double);
     void populate(std::vector<double>, int length);
+    Polygon();
 };

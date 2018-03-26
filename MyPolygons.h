@@ -26,6 +26,7 @@ public:
     void sort();
     Polygon* head();
     std::string to_string();
+    MyPolygons();
 
 
 };

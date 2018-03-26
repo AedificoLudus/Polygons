@@ -4,7 +4,9 @@ int pcounter = 0;
 
 Polygon::Polygon()
 {
-  current = create_node();f
+  current = create_node(nullptr);
+  current->next = current;
+  current->prev = current;
 }
 
 //dynaically allocate memory for Nodes
@@ -22,14 +24,11 @@ pnode* Polygon::create_node(Point* data)
 //search for a null node (the sentinel node)
 void Polygon::reset()
 {
-  if(current != nullptr)
+  while (current->data != nullptr)
   {
-    while (current->data != nullptr)
+    if(current->next != nullptr)
     {
-      if(current->next != nullptr)
-      {
-        current = current->next;
-      }
+      current = current->next;
     }
   }
 }
@@ -62,7 +61,7 @@ void Polygon::append(Point* data)
     pnode *temp;
     reset();
     temp = create_node(data);
-    if (current->next == current)
+    if (current->data == nullptr)
     {
         current->next = temp;
         current->prev = temp;
@@ -71,10 +70,13 @@ void Polygon::append(Point* data)
     }
     else
     {
+      if (current->prev != nullptr)
+      {
         current->prev->next = temp;
-        temp->prev = current->prev;
-        current->prev = temp;
-        temp->next = current;
+      }
+      temp->prev = current->prev;
+      current->prev = temp;
+      temp->next = current;
     }
 }
 
