@@ -39,8 +39,8 @@ int main()
     }
     Polygon temp;
     temp.populate(points, length);
-    firstSet.append(&temp);
-    secondSet.append(&temp);
+    firstSet.append(temp);
+    secondSet.append(temp);
     std::getline(inputFile, currentLine);
   } while(!inputFile.eof());
   //close file

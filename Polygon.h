@@ -1,34 +1,23 @@
 #pragma once
 
+#include <string>
+#include <sstream>
+
 #include "Point.h"
 
-struct pnode
-{
-  Point* data;
-  pnode* next;
-  pnode* prev;
-};
-
-class Polygon
-{
+class Polygon {
+  struct Node {
+    Node* prev;
+    Node* next;
+    Point point;
+    bool isSentinel;
+  } sentinel;
 public:
 
-    pnode *current;
+  Polygon();
 
-    int pcounter = 0;
-
-
-    pnode *create_node(Point* data);
-    void reset();
-    void prepend(Point* data);
-    void append(Point* data);
-    void insert_pos(Point* data, int pos);
-    void delete_pos(int pos);
-    Point* head();
-    double calc_area();
-    std::string to_string();
-    double distance();
-    void add_node(double, double);
-    void populate(std::vector<double>, int length);
-    Polygon();
+  void populate(std::vector<double>, int length);
+  double calculateArea();
+  double minDistance();
+  std::string to_string();
 };

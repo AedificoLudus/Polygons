@@ -2,31 +2,29 @@
 
 #include "Polygon.h"
 
-struct mnode
-{
-  Polygon*data;
-  mnode* next;
-  mnode* prev;
-};
-
-class MyPolygons
-{
+class MyPolygons {
+  struct Node {
+    bool isSentinel;
+    Node* prev;
+    Node* next;
+    Polygon polygon;
+  } sentinel;
 public:
-    mnode *current;
 
-    int mcounter = 0;
+  Node* current;
 
-    mnode* create_node(Polygon* data);
-    void reset();
-    void prepend(Polygon*);
-    void append(Polygon*);
-    void insert_pos(Polygon*, int pos);
-    void delete_pos(int pos);
-    void swap();
-    void sort();
-    Polygon* head();
-    std::string to_string();
-    MyPolygons();
+  MyPolygons();
+
+  void prepend(Polygon polygon);
+  void append(Polygon polygon);
+  void insert(Polygon polygon);
+  void step();
+  void reset();
+  Polygon take();
+  
+  void swap();
+  void sort();
+  std::string to_string();
 
 
 };

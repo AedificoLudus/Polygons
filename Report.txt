@@ -7,6 +7,7 @@ From starting the assignment (Mon 12th March) to Sun 25th March, my time was spe
 Day 1 of coding was structure, Point class and linked list creation.
 Day 2 of coding was Polygon class, MyPolygon class and error fixing.
 Day 3 of coding was main function, error fixing, mild optimisation and general tidying of code.
+Day 4 of coding had a major restructure of the program due to previously unseen segmentation faults caused by logic errors.
 
 Inheretance cases:
 It would be entirely possible to to create a special class of Polygons which have 4 points which each match one coordinate with two other points. These could use a simplified area calculation.

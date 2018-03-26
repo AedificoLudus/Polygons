@@ -2,140 +2,60 @@
 
 int mmcounter = 0;
 
-MyPolygons::MyPolygons()
-{
-  current = create_node(nullptr);
-  current->next = current;
-  current->prev = current;
+MyPolygons::MyPolygons () {
+  sentinel.isSentinel = true;
+  sentinel.prev = &sentinel;
+  sentinel.next = &sentinel;
+  current = &sentinel;
 }
 
-//dynaically allocate memory for Nodes
-mnode* MyPolygons::create_node(Polygon* data)
-{
-  mmcounter++;
-  mnode *temp;
-  temp = new(struct mnode);
-  temp->data = data;
-  temp->next = nullptr;
-  temp->prev = nullptr;
-  return temp;
-}
-
-//search for a null node (the sentinel node)
-void MyPolygons::reset()
-{
-  if(current != nullptr)
-  {
-    while (current->data != nullptr)
-    {
-      if(current->next != nullptr)
-      {
-        current = current->next;
-      }
-    }
-  }
+//set the current node to the node after the sentinel
+void MyPolygons::reset () {
+  current = sentinel.next;
 }
 
 //insert a Node at the beginning
-void MyPolygons::prepend(Polygon* data)
-{
-  mnode *temp;
-  temp = create_node(data);
-  reset();
-  if (current->next == current)
-  {
-    temp->next = current;
-    temp->prev = current;
-    current->next = temp;
-    current->prev = temp;
-  }
-  else
-  {
-    temp->next = current->next;
-    temp->prev = current;
-    current->next->prev = temp;
-    current->next = temp;
-  }
+void MyPolygons::prepend (Polygon polygon) {
+  Node node;
+  node.polygon = polygon;
+  node.isSentinel = false;
+  current = &node;
+
+  node.prev = &sentinel;
+  node.next = sentinel.next;
+
+  sentinel.next = &node;
+  sentinel.next->prev = &node;
 }
 
 //insert a node at the end
-void MyPolygons::append(Polygon* data)
-{
-  mnode *temp;
-  reset();
-  temp = create_node(data);
-  if (current->next == current)
-  {
-    current->next = temp;
-    current->prev = temp;
-    temp->next = current;
-    temp->prev = current;
-  }
-  else
-  {
-    current->prev->next = temp;
-    temp->prev = current->prev;
-    current->prev = temp;
-    temp->next = current;
-  }
+void MyPolygons::insert (Polygon polygon) {
+  Node node;
+  node.polygon = polygon;
+  node.isSentinel = false;
+
+  node.next = current;
+  node.prev = current->prev;
+
+  current->prev->next = &node;
+  current->prev = &node;
+
+  current = &node;
 }
 
-//insert a node at a given position
-void MyPolygons::insert_pos(Polygon* data, int pos)
-{
-  mnode *temp, *s, *ptr;
-  temp = create_node(data);
-  reset();
-  if (mmcounter < pos)
-  {
-    std::cout << "Position out of range" << std::endl;
-    mmcounter--;
-    return;
-    }
-  s = current;
-  for (int i = 1; i <= mmcounter; i++)
-  {
-    ptr = s;
-    s = s->next;
-    if (i == pos - 1)
-    {
-      ptr->next = temp;
-      temp->prev = ptr;
-      s->prev = temp;
-      break;
-    }
-  }
+void MyPolygons::step () {
+  current = current->next;
 }
 
-//delete node at a given position
-void MyPolygons::delete_pos(int pos)
-{
-  mnode *s;
-  reset();
-  if (current->next == current)
-  {
-    std::cout << "Empty List" << std::endl;
-    return;
-  }
-  s = current;
-  for (int i = 0; i < pos - 1; i++)
-  {
-    s = s->next;
-  }
-  s->prev->next = s->next;
-  s->next->prev = s->prev;
-  mmcounter--;
-  free(s);
-}
+Polygon MyPolygons::take () {
+  if (sentinel.next->isSentinel) return sentinel.polygon;
+  Polygon out = sentinel.next->polygon;
+  if (current == sentinel.next) reset();
 
-Polygon* MyPolygons::head()
-{
-  if(current->data != nullptr)
-  {
-    reset();
-    current = current->next;
-    return current->data;
-  }
+  sentinel.next->next->prev = &sentinel;
+  sentinel.next = sentinel.next->next;
+
+  return out;
 }
 
 std::string MyPolygons::to_string()
