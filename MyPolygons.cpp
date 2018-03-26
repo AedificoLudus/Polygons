@@ -16,7 +16,7 @@ void MyPolygons::reset () {
 }
 
 void MyPolygons::append (Polygon polygon) {
-  Node node;
+  Node* node = new Node;
   node.polygon = polygon;
   node.isSentinel = false;
   current = &node;
@@ -30,7 +30,7 @@ void MyPolygons::append (Polygon polygon) {
 
 //insert a Node at the beginning
 void MyPolygons::prepend (Polygon polygon) {
-  Node node;
+  Node* node = new Node;
   node.polygon = polygon;
   node.isSentinel = false;
   current = &node;
@@ -44,7 +44,7 @@ void MyPolygons::prepend (Polygon polygon) {
 
 //insert a node at the end
 void MyPolygons::insert (Polygon polygon) {
-  Node node;
+  Node* node = new Node;
   node.polygon = polygon;
   node.isSentinel = false;
 

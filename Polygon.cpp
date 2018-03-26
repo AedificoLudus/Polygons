@@ -15,7 +15,7 @@ void Polygon::reset () {
 }
 
 void Polygon::append (Point point) {
-  Node node;
+  Node* node = new Node;
   node.point = point;
   node.isSentinel = false;
   current = &node;
