@@ -22,7 +22,6 @@ public:
     void append(Polygon*);
     void insert_pos(Polygon*, int pos);
     void delete_pos(int pos);
-    void add_first();
     void swap();
     void sort();
     Polygon* head();

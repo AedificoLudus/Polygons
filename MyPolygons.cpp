@@ -2,6 +2,11 @@
 
 int mmcounter = 0;
 
+MyPolygons::MyPolygons()
+{
+  current = create_node(nullptr);
+};
+
 //dynaically allocate memory for Nodes
 mnode* MyPolygons::create_node(Polygon* data)
 {
@@ -119,17 +124,6 @@ void MyPolygons::delete_pos(int pos)
   s->next->prev = s->prev;
   mmcounter--;
   free(s);
-}
-
-void MyPolygons::add_first()
-{
-    mnode *temp;
-    temp = create_node(nullptr);
-    current = temp;
-    current->prev->next = temp;
-    temp->prev = current->prev;
-    current->prev = temp;
-    temp->next = current;
 }
 
 Polygon* MyPolygons::head()

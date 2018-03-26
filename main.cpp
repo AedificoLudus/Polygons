@@ -15,9 +15,6 @@ int main()
   //make MyPolygons
   MyPolygons firstSet, secondSet;
   std::cout << "Polygons created";
-  firstSet.add_first();
-  secondSet.add_first();
-  std::cout << "sentinels created";
   //read file
   //create Polygons in MyPolygons
   std::string currentLine;

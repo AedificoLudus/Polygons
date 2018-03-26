@@ -2,6 +2,11 @@
 
 int pcounter = 0;
 
+Polygon::Polygon()
+{
+  current = create_node();f
+}
+
 //dynaically allocate memory for Nodes
 pnode* Polygon::create_node(Point* data)
 {
@@ -181,20 +186,8 @@ void Polygon::add_node(double X, double Y)
   append(tempPoint);
 }
 
-void Polygon::add_first()
-{
-    pnode *temp;
-    temp = create_node(nullptr);
-    current = temp;
-    current->prev->next = temp;
-    temp->prev = current->prev;
-    current->prev = temp;
-    temp->next = current;
-}
-
 void Polygon::populate(std::vector<double>, int length)
 {
-  add_first();
   for(int i = 2; i < length*2; i += 2)
   {
       add_node(i, i+1);
