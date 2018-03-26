@@ -1,5 +1,6 @@
 #include "Polygon.h"
 
+
 Polygon::Polygon() {
   sentinel.isSentinel = true;
   sentinel.prev = &sentinel;
@@ -7,7 +8,6 @@ Polygon::Polygon() {
   current = &sentinel;
   count++;
 }
-
 
 //search for a null node (the sentinel node)
 void Polygon::reset () {
@@ -33,10 +33,12 @@ double Polygon::calculateArea() {
   double area = 0.00;
   reset();
   for (int i=0; i < count-2; i++) {
-    double newX = (current->next->point.get_x() + current->point.get_x());
-    double newY = (current->next->point.get_y() + current->point.get_y());
-    area += newX*newY;
-    current = current->next;
+    if(current->next != &sentinel) {
+      double newX = (current->next->point.get_x() + current->point.get_x());
+      double newY = (current->next->point.get_y() + current->point.get_y());
+      area += newX*newY;
+      current = current->next;
+    }
   }
   area = abs(area);
   area = area/2;
