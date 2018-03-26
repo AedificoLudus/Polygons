@@ -10,8 +10,9 @@ int main()
   std::ifstream inputFile;
   inputFile.open (file);
   //make MyPolygons
-  MyPolygons firstSet;
+  MyPolygons firstSet, secondSet;
   firstSet.add_first();
+  secondSet.add_first();
   //read file
   //create Polygons in MyPolygons
   std::string currentLine;
@@ -37,12 +38,11 @@ int main()
     Polygon temp;
     temp.populate(points, length);
     firstSet.append(&temp);
+    secondSet.append(&temp);
     std::getline(inputFile, currentLine);
   } while(!inputFile.eof());
   //close file
   inputFile.close();
-  //copy MyPolygons
-  MyPolygons secondSet = firstSet;
   //sort new copy
   secondSet.sort();
   //print both
