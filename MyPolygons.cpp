@@ -123,8 +123,9 @@ void MyPolygons::delete_pos(int pos)
 
 void MyPolygons::add_first()
 {
-    pnode *temp;
+    mnode *temp;
     temp = create_node(nullptr);
+    *current = temp;
     current->prev->next = temp;
     temp->prev = current->prev;
     current->prev = temp;

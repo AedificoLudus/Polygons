@@ -4,11 +4,14 @@ int main()
 {
   //open file
   std::string file = "";
-  std::cout << "Enter name of file to read \n";
-  std::cout << "Please include file extension \n";
+  std::cout << "Enter name of text file to read \n";
+  std::cout << "Please do not include file extension \n";
   std::cin >> file;
   std::ifstream inputFile;
-  inputFile.open (file);
+  std::stringstream ss;
+  ss << file << ".txt";
+  std::string openFile = ss.str();
+  inputFile.open (openFile);
   //make MyPolygons
   MyPolygons firstSet, secondSet;
   firstSet.add_first();

@@ -2,12 +2,6 @@
 
 int pcounter = 0;
 
-class Polygons
-{
-  int pcounter = 0;
-  add_first();
-}
-
 //dynaically allocate memory for Nodes
 pnode* Polygon::create_node(Point* data)
 {
@@ -191,6 +185,7 @@ void Polygon::add_first()
 {
     pnode *temp;
     temp = create_node(nullptr);
+    *current = temp
     current->prev->next = temp;
     temp->prev = current->prev;
     current->prev = temp;
