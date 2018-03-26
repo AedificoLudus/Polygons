@@ -4,6 +4,11 @@
 
 using namespace std;
 
+Point::Point() {
+  this->x;
+  this->y;
+}
+
 Point::Point (double x, double y) {
   this->set(x, y);
 }
