@@ -19,7 +19,10 @@ void MyPolygons::reset()
 {
   while (current->data != nullptr)
   {
-    current = current->next;
+    if(current->next != nullptr)
+    {
+      current = current->next;
+    }
   }
 }
 
