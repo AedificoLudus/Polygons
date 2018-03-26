@@ -24,11 +24,14 @@ pnode* Polygon::create_node(Point* data)
 //search for a null node (the sentinel node)
 void Polygon::reset()
 {
-  while (current->data != nullptr)
+  if (current != nullptr)
   {
-    if(current->next != nullptr)
+    while (current->data != nullptr)
     {
-      current = current->next;
+      if(current->next != nullptr)
+      {
+        current = current->next;
+      }
     }
   }
 }
