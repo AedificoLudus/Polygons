@@ -2,6 +2,12 @@
 
 int pcounter = 0;
 
+class Polygons
+{
+  int pcounter = 0;
+  add_first();
+}
+
 //dynaically allocate memory for Nodes
 pnode* Polygon::create_node(Point* data)
 {
@@ -17,11 +23,14 @@ pnode* Polygon::create_node(Point* data)
 //search for a null node (the sentinel node)
 void Polygon::reset()
 {
-  if(current)
+  if(current != nullptr)
   {
     while (current->data != nullptr)
     {
+      if(current->next != nullptr)
+      {
         current = current->next;
+      }
     }
   }
 }
@@ -118,11 +127,6 @@ void Polygon::delete_pos(int pos)
   free(s);
 }
 
-void Polygon::add_first()
-{
-  append(nullptr);
-}
-
 Point* Polygon::head()
 {
   reset();
@@ -181,6 +185,16 @@ void Polygon::add_node(double X, double Y)
   Point* tempPoint = new Point;
   tempPoint->set_values(X, Y);
   append(tempPoint);
+}
+
+void Polygon::add_first()
+{
+    pnode *temp;
+    temp = create_node(nullptr);
+    current->prev->next = temp;
+    temp->prev = current->prev;
+    current->prev = temp;
+    temp->next = current;
 }
 
 void Polygon::populate(std::vector<double>, int length)

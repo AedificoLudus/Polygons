@@ -17,11 +17,14 @@ mnode* MyPolygons::create_node(Polygon* data)
 //search for a null node (the sentinel node)
 void MyPolygons::reset()
 {
-  while (current->data != nullptr)
+  if(current != nullptr)
   {
-    if(current->next != nullptr)
+    while (current->data != nullptr)
     {
-      current = current->next;
+      if(current->next != nullptr)
+      {
+        current = current->next;
+      }
     }
   }
 }
@@ -120,7 +123,12 @@ void MyPolygons::delete_pos(int pos)
 
 void MyPolygons::add_first()
 {
-  append(nullptr);
+    pnode *temp;
+    temp = create_node(nullptr);
+    current->prev->next = temp;
+    temp->prev = current->prev;
+    current->prev = temp;
+    temp->next = current;
 }
 
 Polygon* MyPolygons::head()
