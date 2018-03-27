@@ -79,7 +79,7 @@ Polygon MyPolygons::take () {
   return out;
 }
 
-std::string MyPolygons::to_string() {
+std::string MyPolygons::to_string () {
   std::string ss = "";
   reset();
   while (sentinel != current)
