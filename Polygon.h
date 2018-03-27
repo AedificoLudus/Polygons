@@ -22,7 +22,7 @@ public:
 
   Polygon();
 
-  void populate(std::vector<double>, int length);
+  void populate(std::vector<double>);
   void reset();
   void step();
   void append(double X, double Y);

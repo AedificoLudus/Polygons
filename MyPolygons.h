@@ -30,6 +30,7 @@ public:
 
   void swap();
   void sort();
+  bool isSorted();
   std::string to_string();
 
 

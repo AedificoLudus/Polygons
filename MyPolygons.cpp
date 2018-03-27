@@ -34,7 +34,6 @@ void MyPolygons::append (Polygon polygon) {
   count++;
 }
 
-//insert a Node at the beginning
 void MyPolygons::prepend (Polygon polygon) {
   Node* node = new Node;
   node->polygon = polygon;
@@ -50,7 +49,6 @@ void MyPolygons::prepend (Polygon polygon) {
   count++;
 }
 
-//insert a node at the end
 void MyPolygons::insert (Polygon polygon) {
   Node* node = new Node;
   node->polygon = polygon;
@@ -84,9 +82,9 @@ std::string MyPolygons::to_string () {
   std::cout << "MyPolygons::to_string() is running\n";
   while (current != sentinel)
   {
-    ss << current->polygon.to_string() << "\n";
-    step();
     std::cout << "MyPolygons::to_string() loop is running\n";
+    ss << current->polygon.to_string() << "  polygon printed\n";
+    step();
   } return ss.str();
 }
 
@@ -100,20 +98,34 @@ void MyPolygons::swap() {
   }
 }
 
-void MyPolygons::sort() {
-    reset();
-    while (current->next != sentinel) {
-      double A = current->polygon.calculateArea(); //this is just to make it more readable
-      double B = current->next->polygon.calculateArea();
-      if(abs((fmax(A,B)-fmin(A,B))/fmin(A,B) < 0.05)) { // divide the two numbers with respect to the lower number
-        if(current->polygon.minDistance() > current->next->polygon.minDistance()) {
-          swap();
-        }
-      } else {
-        if(A > B) {
-          swap();
-        }
-      }
-      current = current->next;
+bool MyPolygons::isSorted() {
+  reset();
+  while (current->next != sentinel) {
+    if (current->polygon.calculateArea() > current->next->polygon.calculateArea()) {
+      return false;
     }
+  } return true;
+}
+
+void MyPolygons::sort() {
+  std::cout << "sorting now\n";
+  reset();
+  while (!isSorted()) {
+    double A = current->polygon.calculateArea(); //this is just to make it more readable
+    double B = current->next->polygon.calculateArea();
+    if(A > B) {
+      swap();
+    } step(); std::cout << "finished sorting\n";
+  }
+  reset();
+  while (current->next != sentinel) {
+    double A = current->polygon.calculateArea(); //this is just to make it more readable
+    double B = current->next->polygon.calculateArea();
+    if(abs((fmax(A,B)-fmin(A,B))/fmin(A,B) < 0.05)) { // divide the two numbers with respect to the lower number
+      if(current->polygon.minDistance() > current->next->polygon.minDistance()) {
+        swap();
+      }
+    }
+  }
+  current = current->next;
 }

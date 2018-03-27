@@ -55,14 +55,18 @@ std::string Polygon::to_string() {
   reset();
   std::stringstream ss;
   ss << "[";
-  std::cout << "Polygon to_string runs\n" << count << "\n";
-  for (int i=0;i<count;i++) {
+  std::cout << "Polygon::to_string() is running\n" << count << "\n";
+  do {
     std::cout << "Polygon loop runs\n";
-    ss << current->point.to_string() << ", ";
+    if (current->next != sentinel) {
+      ss << current->point.to_string() << ", ";
+    } else {
+      ss << current->point.to_string();
+    }
     step();
-  }
-  ss.seekp(-1, ss.cur);
-  ss << "]:" << calculateArea();
+  } while (current != sentinel);
+  std::cout << "Polygon loop finished\n";
+  ss << "]:" << calculateArea() << "\n";
   return ss.str();
 }
 
@@ -77,8 +81,8 @@ double Polygon::minDistance() {
   } return min;
 }
 
-void Polygon::populate(std::vector<double> points, int length) {
-  for(int i = 2; i < length*2; i += 2) {
-      append(i, i+1);
+void Polygon::populate(std::vector<double> points) {
+  for(int i = 0; i < points.size(); i += 2) {
+      append(points[i], points[i+1]);
   }
 }
