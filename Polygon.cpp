@@ -2,29 +2,29 @@
 
 
 Polygon::Polygon() {
-  sentinel.isSentinel = true;
-  sentinel.prev = &sentinel;
-  sentinel.next = &sentinel;
-  current = &sentinel;
+  sentinel->isSentinel = true;
+  sentinel->prev = sentinel;
+  sentinel->next = sentinel;
+  current = sentinel;
   count++;
 }
 
 //search for a null node (the sentinel node)
 void Polygon::reset () {
-  current = sentinel.next;
+  current = sentinel->next;
 }
 
 void Polygon::append (Point point) {
   Node* node = new Node;
-  node.point = point;
-  node.isSentinel = false;
-  current = &node;
+  node->point = point;
+  node->isSentinel = false;
+  current = node;
 
-  node.prev = sentinel.prev;
-  node.next = &sentinel;
+  node->prev = sentinel->prev;
+  node->next = sentinel;
 
-  sentinel.prev->next = &node;
-  sentinel.prev = &node;
+  sentinel->prev->next = node;
+  sentinel->prev = node;
 
   count++;
 }
@@ -33,7 +33,7 @@ double Polygon::calculateArea() {
   double area = 0.00;
   reset();
   for (int i=0; i < count-2; i++) {
-    if(current->next != &sentinel) {
+    if(current->next != sentinel) {
       double newX = (current->next->point.get_x() + current->point.get_x());
       double newY = (current->next->point.get_y() + current->point.get_y());
       area += newX*newY;

@@ -8,10 +8,13 @@ class MyPolygons {
     Node* prev;
     Node* next;
     Polygon polygon;
-  } sentinel;
+  } ;
 public:
 
+  Node* sentinel;
   Node* current;
+
+  int count;
 
   MyPolygons();
 
@@ -21,7 +24,7 @@ public:
   void step();
   void reset();
   Polygon take();
-  
+
   void swap();
   void sort();
   std::string to_string();

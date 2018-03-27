@@ -12,9 +12,10 @@ class Polygon {
     Node* next;
     Point point;
     bool isSentinel;
-  } sentinel;
+  };
 public:
 
+  Node* sentinel;
   Node* current;
 
   int count;

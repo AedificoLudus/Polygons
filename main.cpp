@@ -1,4 +1,8 @@
 #include "MyPolygons.h"
+#include <iostream>
+#include <fstream>
+#include <istream>
+#include <iterator>
 
 int main()
 {
@@ -24,16 +28,13 @@ int main()
     std::vector<std::string> tokens;
     std::vector<double> points;
      //[(length*2)+2];
-    for (int i = 0; i < 1; i++)
-    {
-      using namespace std;
-      istringstream iss(currentLine);
-      copy(istream_iterator<string>(iss),
-          istream_iterator<string>(),
+    for (int i = 0; i < 1; i++) {
+      std::istringstream iss(currentLine);
+      copy(std::istream_iterator<std::string>(iss),
+          std::istream_iterator<std::string>(),
           back_inserter(tokens));
       tokens.erase(tokens.begin(), tokens.begin()+1);
-      for (int i = 0; i < tokens.size(); i++)
-      {
+      for (int i = 0; i < tokens.size(); i++) {
         points.push_back(std::stod(tokens[i]));
       }
     }
