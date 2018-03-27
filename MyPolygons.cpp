@@ -12,7 +12,10 @@ MyPolygons::MyPolygons () {
   count++;
 }
 
-//set the current node to the node after the sentinel
+void MyPolygons::step () {
+  current = current->next;
+}
+
 void MyPolygons::reset () {
   if (sentinel->next != nullptr) {
     current = sentinel->next;
@@ -65,10 +68,6 @@ void MyPolygons::insert (Polygon polygon) {
   current = node;
 
   count++;
-}
-
-void MyPolygons::step () {
-  current = current->next;
 }
 
 Polygon MyPolygons::take () {
