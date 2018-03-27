@@ -81,10 +81,11 @@ Polygon MyPolygons::take () {
 std::string MyPolygons::to_string () {
   std::stringstream ss;
   reset();
-  while (sentinel != current)
+  while (current != sentinel)
   {
     ss << current->polygon.to_string() << "\n";
     step();
+    std::cout << "MyPolygons Loop Runs\n";
   } return ss.str();
 }
 

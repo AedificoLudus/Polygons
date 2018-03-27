@@ -24,6 +24,7 @@ public:
 
   void populate(std::vector<double>, int length);
   void reset();
+  void step();
   void append(double X, double Y);
   double calculateArea();
   double minDistance();

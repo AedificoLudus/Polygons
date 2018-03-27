@@ -7,11 +7,15 @@ Polygon::Polygon() {
   sentinel->prev = sentinel;
   sentinel->next = sentinel;
   current = sentinel;
-  count++;
+  count = 1;
 }
 
 void Polygon::reset () {
   current = sentinel->next;
+}
+
+void Polygon::step () {
+  current = current->next;
 }
 
 void Polygon::append (double X, double Y) {
@@ -39,7 +43,7 @@ double Polygon::calculateArea() {
       double newX = (current->next->point.get_x() + current->point.get_x());
       double newY = (current->next->point.get_y() + current->point.get_y());
       area += newX*newY;
-      current = current->next;
+      step();
     }
   }
   area = abs(area);
@@ -51,9 +55,11 @@ std::string Polygon::to_string() {
   reset();
   std::stringstream ss;
   ss << "[";
+  std::cout << "Polygon to_string runs\n" << count << "\n";
   for (int i=0;i<count;i++) {
+    std::cout << "Polygon loop runs\n";
     ss << current->point.to_string() << ", ";
-    current = current->next;
+    step();
   }
   ss.seekp(-1, ss.cur);
   ss << "]:" << calculateArea();
@@ -64,7 +70,7 @@ double Polygon::minDistance() {
   reset();
   double min = current->point.magnitude();
   for (int i = 1; i < count; i++) {
-    current = current->next;
+    step();
     if (min > current->point.magnitude()) {
       min = current->point.magnitude();
     }

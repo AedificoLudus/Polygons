@@ -1,5 +1,3 @@
-// DONE
-
 #include "Point.h"
 
 using namespace std;
@@ -26,7 +24,8 @@ double Point::magnitude () {
 }
 
 string Point::to_string() {
-  stringstream out;
+  std::cout << "Point::to_string() runs\n";
+  std::stringstream out;
   out << "(" << get_x() << ", " << get_y() << ")";
   return out.str();
 }

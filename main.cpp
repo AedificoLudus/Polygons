@@ -18,7 +18,7 @@ int main()
   inputFile.open (openFile);
   //make MyPolygons
   MyPolygons firstSet, secondSet;
-  std::cout << "Polygons created";
+  std::cout << "MyPolygons created\n";
   //read file
   //create Polygons in MyPolygons
   std::string currentLine;
