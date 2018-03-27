@@ -46,6 +46,8 @@ int main()
   //sort new copy
   secondSet.sort();
   //print both
-  firstSet.to_string();
-  secondSet.to_string();
+  std::cout << "Input Order\n";
+  std::cout << firstSet.to_string() <<"\n";
+  std::cout << "Sorted by size\n";
+  std::cout << secondSet.to_string() << "\n";
 }

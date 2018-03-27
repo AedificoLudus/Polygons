@@ -86,9 +86,9 @@ std::string MyPolygons::to_string () {
   reset();
   while (sentinel != current)
   {
-    std::cout << current->polygon.to_string() << "\n";
+    ss << current->polygon.to_string() << "\n";
     step();
-  }
+  } return ss.str();
 }
 
 void MyPolygons::swap() {
