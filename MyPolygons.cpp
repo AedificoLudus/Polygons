@@ -88,11 +88,10 @@ std::string MyPolygons::to_string () {
 
 void MyPolygons::swap() {
   if (current != sentinel && current->next != sentinel) {
-    current->next->prev = current->prev;
-    current->prev->next = current->next;
-    current->prev = current->next;
-    current->next->next = current;
-    current->next = current->next->next;
+    Polygon tempPolygon;
+    tempPolygon = current->polygon;
+    current->polygon = current->next->polygon;
+    current->next->polygon = tempPolygon;
   }
 }
 
@@ -113,7 +112,7 @@ void MyPolygons::sort() {
     double B = current->next->polygon.calculateArea();
     if(A > B) {
       swap();
-    } step(); std::cout << "finished sorting\n";
+    } step();
   }
   reset();
   while (current->next != sentinel) {
