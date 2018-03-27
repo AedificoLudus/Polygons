@@ -3,6 +3,7 @@
 #include <fstream>
 #include <istream>
 #include <iterator>
+#include <limits>
 
 int main()
 {
@@ -22,7 +23,9 @@ int main()
   //read file
   //create Polygons in MyPolygons
   std::string currentLine;
+  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
   std::getline(inputFile, currentLine);
+  std::cout << currentLine;
   do {
     int length = currentLine.at(2);
     std::vector<std::string> tokens;
