@@ -15,9 +15,10 @@ void Polygon::reset () {
   current = sentinel->next;
 }
 
-void Polygon::append (Point point) {
+void Polygon::append (double X, double Y) {
+  Point* tempPoint = new Point;
   Node* node = new Node;
-  node->point = point;
+  node->point = tempPoint;
   node->isSentinel = false;
   current = node;
 
@@ -72,8 +73,6 @@ double Polygon::minDistance() {
 
 void Polygon::populate(std::vector<double> points, int length) {
   for(int i = 2; i < length*2; i += 2) {
-      Point* tempPoint = new Point;
-      tempPoint->set(i, i+1);
-      append(tempPoint*);
+      append(i, i+1);
   }
 }

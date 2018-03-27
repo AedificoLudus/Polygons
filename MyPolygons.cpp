@@ -14,7 +14,9 @@ MyPolygons::MyPolygons () {
 
 //set the current node to the node after the sentinel
 void MyPolygons::reset () {
-  current = sentinel->next;
+  if (sentinel->next != nullptr) {
+    current = sentinel->next;
+  }
 }
 
 void MyPolygons::append (Polygon polygon) {

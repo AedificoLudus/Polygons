@@ -24,7 +24,7 @@ public:
 
   void populate(std::vector<double>, int length);
   void reset();
-  void append(Point point);
+  void append(double X, double Y);
   double calculateArea();
   double minDistance();
   std::string to_string();
