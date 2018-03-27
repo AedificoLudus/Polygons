@@ -4,7 +4,7 @@
 #include "MyPolygons.h"
 
 MyPolygons::MyPolygons () {
-  Node* sentinel = new Node;
+  sentinel = new Node;
   sentinel->isSentinel = true;
   sentinel->prev = sentinel;
   sentinel->next = sentinel;

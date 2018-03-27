@@ -2,7 +2,7 @@
 
 
 Polygon::Polygon() {
-  Node* sentinel = new Node;
+  sentinel = new Node;
   sentinel->isSentinel = true;
   sentinel->prev = sentinel;
   sentinel->next = sentinel;
@@ -70,10 +70,10 @@ double Polygon::minDistance() {
   } return min;
 }
 
-void Polygon::populate(std::vector<double>, int length) {
+void Polygon::populate(std::vector<double> points, int length) {
   for(int i = 2; i < length*2; i += 2) {
-      Point point;
-      point.set(i, i+1);
-      append(point);
+      Point* tempPoint = new Point;
+      tempPoint->set(i, i+1);
+      append(tempPoint*);
   }
 }
