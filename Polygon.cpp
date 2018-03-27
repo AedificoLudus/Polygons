@@ -55,9 +55,7 @@ std::string Polygon::to_string() {
   reset();
   std::stringstream ss;
   ss << "[";
-  std::cout << "Polygon::to_string() is running\n" << count << "\n";
   do {
-    std::cout << "Polygon loop runs\n";
     if (current->next != sentinel) {
       ss << current->point.to_string() << ", ";
     } else {
@@ -65,7 +63,6 @@ std::string Polygon::to_string() {
     }
     step();
   } while (current != sentinel);
-  std::cout << "Polygon loop finished\n";
   ss << "]:" << calculateArea() << "\n";
   return ss.str();
 }

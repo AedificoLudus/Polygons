@@ -24,7 +24,6 @@ double Point::magnitude () {
 }
 
 string Point::to_string() {
-  std::cout << "Point::to_string() runs\n";
   std::stringstream out;
   out << "(" << get_x() << ", " << get_y() << ")";
   return out.str();
