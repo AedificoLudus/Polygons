@@ -1,6 +1,3 @@
-#include <sstream>
-#include <iostream>
-
 #include "MyPolygons.h"
 
 MyPolygons::MyPolygons () {
@@ -82,7 +79,7 @@ Polygon MyPolygons::take () {
 }
 
 std::string MyPolygons::to_string () {
-  std::string ss = "";
+  std::stringstream ss;
   reset();
   while (sentinel != current)
   {

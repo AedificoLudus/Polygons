@@ -10,7 +10,6 @@ Polygon::Polygon() {
   count++;
 }
 
-//search for a null node (the sentinel node)
 void Polygon::reset () {
   current = sentinel->next;
 }
