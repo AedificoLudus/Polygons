@@ -24,6 +24,7 @@ int main()
   if (!inputFile.good()) {
       std::cout << "something is wrong with the input file";
   } else {
+    std::cout << "Input file is good";
     for (std::string line; std::getline(inputFile, line);) {
       std::vector<double> points;
       int length = line[2];
