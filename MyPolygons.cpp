@@ -73,6 +73,9 @@ Polygon MyPolygons::take () {
   sentinel->next->next->prev = sentinel;
   sentinel->next = sentinel->next->next;
 
+  //return the polygon directly after isSentinel
+  //set the polygon after that one as the head of the list
+
   return out;
 }
 
@@ -82,11 +85,16 @@ std::string MyPolygons::to_string () {
   while (current != sentinel)
   {
     ss << current->polygon.to_string() << "\n";
+    //add the return of the Polygons to_string() functions to the stringstream
+    //with formatting
     step();
   } return ss.str();
 }
 
 void MyPolygons::swap() {
+  //swapping by value, not by links
+  //will swap by links after I know the programs works fine otherwise
+  //for specification reasons
   if (current != sentinel && current->next != sentinel) {
     Polygon tempPolygon;
     tempPolygon = current->polygon;
@@ -98,7 +106,9 @@ void MyPolygons::swap() {
 bool MyPolygons::isSorted() {
   reset();
   while (current->next != sentinel) {
+    //step through the list until you reach the sentinel
     if (current->polygon.calculateArea() > current->next->polygon.calculateArea()) {
+      //if the current polygon has a larger area than the next polygon
       return false;
     }
   } return true;
@@ -112,14 +122,18 @@ void MyPolygons::sort() {
     double B = current->next->polygon.calculateArea();
     if(A > B) {
       swap();
+      //if A, the first polygon, has a greater area than B, the second, swap them over
     } step();
   }
   reset();
   while (current->next != sentinel) {
     double A = current->polygon.calculateArea(); //this is just to make it more readable
     double B = current->next->polygon.calculateArea();
-    if(abs((fmax(A,B)-fmin(A,B))/fmin(A,B) < 0.05)) { // divide the two numbers with respect to the lower number
+    if(abs((fmax(A,B)-fmin(A,B))/fmin(A,B) < 0.05)) {
+      // divide the two numbers with respect to the lower number
+      // find if the two areas are within 0.5% of each other
       if(current->polygon.minDistance() > current->next->polygon.minDistance()) {
+        //the polygon with the lower minDistance goes first, not the polygon with the lower area
         swap();
       }
     }

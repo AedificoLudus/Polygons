@@ -19,11 +19,14 @@ int main()
   ss << "./" << file << ".txt";
   std::string openFile = ss.str();
   inputFile.open (openFile);
+  //setting up file reading
 
   MyPolygons firstSet, secondSet;
+  //these are the two MyPolygons objects the file will manage
 
   if (!inputFile.good()) {
       std::cout << "something is wrong with the input file";
+      //TODO replace this with somethin that prints the actual issue
   } else {
     for (std::string line; std::getline(inputFile, line);) {
       //cout to show the loop has entered

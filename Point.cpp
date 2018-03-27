@@ -26,5 +26,6 @@ double Point::magnitude () {
 string Point::to_string() {
   std::stringstream out;
   out << "(" << get_x() << ", " << get_y() << ")";
+  //insert the point into the stream in the fashion (X, Y)
   return out.str();
 }
