@@ -27,16 +27,13 @@ int main()
     int length = currentLine.at(2);
     std::vector<std::string> tokens;
     std::vector<double> points;
-     //[(length*2)+2];
-    for (int i = 0; i < 1; i++) {
-      std::istringstream iss(currentLine);
-      copy(std::istream_iterator<std::string>(iss),
-          std::istream_iterator<std::string>(),
-          back_inserter(tokens));
-      tokens.erase(tokens.begin(), tokens.begin()+1);
-      for (int i = 0; i < tokens.size(); i++) {
-        points.push_back(std::stod(tokens[i]));
-      }
+    std::istringstream iss(currentLine);
+    copy(std::istream_iterator<std::string>(iss),
+        std::istream_iterator<std::string>(),
+        back_inserter(tokens));
+    tokens.erase(tokens.begin(), tokens.begin()+1);
+    for (int i = 0; i < tokens.size(); i++) {
+      points.push_back(std::stod(tokens[i]));
     }
     Polygon temp;
     temp.populate(points, length);
