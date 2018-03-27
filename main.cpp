@@ -1,4 +1,6 @@
 #include "MyPolygons.h"
+
+#include <string>
 #include <iostream>
 #include <fstream>
 #include <istream>
