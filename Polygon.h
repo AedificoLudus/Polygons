@@ -8,10 +8,10 @@
 
 class Polygon {
   struct Node {
+    bool isSentinel;
     Node* prev;
     Node* next;
     Point point;
-    bool isSentinel;
   };
 public:
 
