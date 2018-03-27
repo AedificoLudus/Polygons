@@ -105,32 +105,35 @@ void MyPolygons::swap() {
 
 bool MyPolygons::isSorted() {
   reset();
-  while (current->next != sentinel) {
+  while (current != sentinel) {
     //step through the list until you reach the sentinel
-    if (current->polygon.calculateArea() > current->next->polygon.calculateArea()) {
+    double A = current->polygon.calculateArea();
+    double B = current->next->polygon.calculateArea();
+    if (A > B) {
       //if the current polygon has a larger area than the next polygon
       return false;
-    }
-  } return true;
+    } step();
+  }
+  return true;
 }
 
 void MyPolygons::sort() {
-  std::cout << "sorting now\n";
   reset();
-  std::cout << "does this print?" << std::endl;
-  while (!isSorted()) { //iterate && swap mis-sorted polygons
-    std::cout << "first while loop iterate" << std::endl;
+  bool sortMarker = false;
+  while (sortMarker == 0) { //iterate && swap mis-sorted polygons
     double A = current->polygon.calculateArea(); //this is just to make it more readable
     double B = current->next->polygon.calculateArea();
     if(A > B) {
       swap();
       //if A, the first polygon, has a greater area than B, the second, swap them over
-    } step();
+    }
+    step();
+    sortMarker = isSorted();
   }
-  std::cout << "first while loop exited" << std::endl;
+  std::cout << "first while loop exited\n";
   reset();
   while (current->next != sentinel) {
-    std::cout << "second while loop iterate" << std::endl;
+    std::cout << "second while loop iterate\n";
     double A = current->polygon.calculateArea(); //this is just to make it more readable
     double B = current->next->polygon.calculateArea();
     if(abs((fmax(A,B)-fmin(A,B))/fmin(A,B) < 0.05)) {
@@ -142,6 +145,6 @@ void MyPolygons::sort() {
       }
     }
   } //iterate && swap closely sized polyhons
-  std::cout << "second while loop exited" << std::endl;
+  std::cout << "second while loop exited\n";
   current = current->next;
 }
