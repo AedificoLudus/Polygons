@@ -30,7 +30,7 @@ int main()
     for (std::string line; std::getline(inputFile, line);) {
       std::vector<double> points;
       int length = line[2];
-      line.erase(0,2);
+      line.erase(0,3);
       std::stringstream oss;
       oss << line;
       double tempDouble;
