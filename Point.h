@@ -9,6 +9,7 @@ class Point {
   double x, y;
 public:
   Point();
+  ~Point();
   Point(double x, double y);
   void set(double x, double y);
   double get_x();

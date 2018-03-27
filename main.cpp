@@ -25,7 +25,7 @@ int main()
   //these are the two MyPolygons objects the file will manage
 
   if (!inputFile.good()) {
-      std::cout << "something is wrong with the input file";
+      //@std::cout << "something is wrong with the input file";
       //TODO replace this with somethin that prints the actual issue
   } else {
     for (std::string line; std::getline(inputFile, line);) {
@@ -61,9 +61,10 @@ int main()
 
     //print both
     std::cout << "Input Order:\n";
-    std::cout << (firstSet.to_string()) <<"\n";
+    std::cout << (firstSet.to_string()) << "\n";
     std::cout << "Sorted by size:\n";
     secondSet.sort();
+    //@std::cout << "list sorted\n";
     std::cout << (secondSet.to_string()) << "\n";
   }
   inputFile.close();

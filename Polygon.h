@@ -21,6 +21,7 @@ public:
   int count;
 
   Polygon();
+  ~Polygon();
 
   void populate(std::vector<double>);
   void reset();

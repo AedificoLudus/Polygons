@@ -7,6 +7,9 @@ Point::Point() {
   this->y = 0.00;
 }
 
+Point::~Point() {
+}
+
 Point::Point (double x, double y) {
   this->set(x, y);
 }

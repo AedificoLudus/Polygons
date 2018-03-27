@@ -6,7 +6,7 @@ MyPolygons::MyPolygons () {
   sentinel->prev = sentinel;
   sentinel->next = sentinel;
   current = sentinel;
-  count++;
+  count = 1;
 }
 
 void MyPolygons::step () {
@@ -76,6 +76,7 @@ Polygon MyPolygons::take () {
   //return the polygon directly after isSentinel
   //set the polygon after that one as the head of the list
 
+  count--;
   return out;
 }
 
@@ -106,13 +107,17 @@ void MyPolygons::swap() {
 bool MyPolygons::isSorted() {
   reset();
   while (current != sentinel) {
+    //@std::cout << "looping\n";
     //step through the list until you reach the sentinel
     double A = current->polygon.calculateArea();
     double B = current->next->polygon.calculateArea();
     if (A > B) {
-      //if the current polygon has a larger area than the next polygon
       return false;
-    } step();
+      std::cout << "list not sorted\n";
+    } else {
+      step();
+      //@std::cout << "stepping\n";
+    }
   }
   return true;
 }
@@ -125,15 +130,20 @@ void MyPolygons::sort() {
     double B = current->next->polygon.calculateArea();
     if(A > B) {
       swap();
+      //@std::cout << "swapping node values\n";
       //if A, the first polygon, has a greater area than B, the second, swap them over
     }
     step();
-    sortMarker = isSorted();
-  }
-  std::cout << "first while loop exited\n";
+    if (current->next = sentinel) {
+      sortMarker = isSorted();
+      //@std::cout << "end of list reached\n";
+    }
+  } //@std::cout << "list 'sorted'\n";
+  //@std::cout << "first while loop exited\n";
   reset();
-  while (current->next != sentinel) {
-    std::cout << "second while loop iterate\n";
+  //@std::cout << "current reset \n";
+  for (int i = 0; i < count; i++) {
+    //@std::cout << "second while loop iterate\n";
     double A = current->polygon.calculateArea(); //this is just to make it more readable
     double B = current->next->polygon.calculateArea();
     if(abs((fmax(A,B)-fmin(A,B))/fmin(A,B) < 0.05)) {
@@ -145,6 +155,5 @@ void MyPolygons::sort() {
       }
     }
   } //iterate && swap closely sized polyhons
-  std::cout << "second while loop exited\n";
-  current = current->next;
+  //@std::cout << "second while loop exited\n";
 }

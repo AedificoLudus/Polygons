@@ -10,6 +10,12 @@ Polygon::Polygon() {
   count = 1;
 }
 
+Polygon::~Polygon() {
+  delete sentinel->prev;
+  delete sentinel->next;
+  delete sentinel;
+}
+
 void Polygon::reset () {
   current = sentinel->next;
   //reset current to the first actual point in the list.
