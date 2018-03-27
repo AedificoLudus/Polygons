@@ -16,7 +16,7 @@ int main()
   std::cin >> file;
   std::ifstream inputFile;
   std::stringstream ss;
-  ss << file << ".txt";
+  ss << "./" << file << ".txt";
   std::string openFile = ss.str();
   inputFile.open (openFile);
 
@@ -31,11 +31,11 @@ int main()
       std::vector<double> points;
       int length = line[2];
       line.erase(0,2);
-      std::stringstream ss;
-      ss << line;
+      std::stringstream oss;
+      oss << line;
       double tempDouble;
       for (int i = 0; i < length; i++) {
-        ss >> tempDouble;
+        oss >> tempDouble;
         points.push_back(tempDouble);
       }
       Polygon tempPolygon;
