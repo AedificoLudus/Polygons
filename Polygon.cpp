@@ -17,6 +17,7 @@ void Polygon::reset () {
 
 void Polygon::append (double X, double Y) {
   Point* tempPoint = new Point;
+  tempPoint->set(X, Y);
   Node* node = new Node;
   node->point = *tempPoint;
   node->isSentinel = false;
