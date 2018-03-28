@@ -7,13 +7,21 @@ Polygon::Polygon() {
   sentinel->prev = sentinel;
   sentinel->next = sentinel;
   current = sentinel;
-  count = 1;
 }
 
 Polygon::~Polygon() {
-  delete sentinel->prev;
-  delete sentinel->next;
+  sentinel->prev->next = nullptr;
+  reset();
+  while (current != sentinel) {
+    Node* temp = current;
+    std::cout << "setting temp\n";
+    step();
+    std::cout << "stepping\n";
+    delete temp;
+    std::cout << "deleting temp\n";
+    }
   delete sentinel;
+  std::cout << "deleting sentinel\n";
 }
 
 void Polygon::reset () {
