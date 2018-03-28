@@ -24,7 +24,12 @@ Polygon::~Polygon() {
 }
 
 Polygon::Polygon(const Polygon &oldPolygon) {
-  
+  reset();
+  vector<double> points;
+  while(current != sentinel) {
+    points.push_back(current->point.get_x());
+    points.push_back(current->point.get_y());
+  }
 }
 
 void Polygon::reset () {
