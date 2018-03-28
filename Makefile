@@ -4,7 +4,7 @@ PA1:	main.o MyPolygons.o Polygon.o Point.o
 main.o: main.cpp MyPolygons.h
 	g++ -c main.cpp -o main.o -fsanitize=address -g -std=c++11
 
-MyPolgyons.o: MyPolygons.cpp MyPolygons.h Polygon.h
+MyPolygons.o: MyPolygons.cpp MyPolygons.h Polygon.h
 	g++ -c MyPolygons.cpp -o MyPolygons.o -fsanitize=address -g -std=c++11
 
 Polygon.o: Polygon.cpp Point.h

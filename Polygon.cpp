@@ -10,7 +10,6 @@ Polygon::Polygon() {
 }
 
 Polygon::~Polygon() {
-  sentinel->prev->next = nullptr;
   reset();
   while (current != sentinel) {
     Node* temp = current;
@@ -22,6 +21,10 @@ Polygon::~Polygon() {
     }
   delete sentinel;
   std::cout << "deleting sentinel\n";
+}
+
+Polygon::Polygon(const Polygon &oldPolygon) {
+  
 }
 
 void Polygon::reset () {

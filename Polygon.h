@@ -22,8 +22,7 @@ public:
 
   Polygon();
   ~Polygon();
-  Polygon(const Polygon&) = delete;
-  Polygon& operator=(const Polygon&) = delete;
+  Polygon(const Polygon &oldPolygon);
 
   void populate(std::vector<double>);
   void reset();
